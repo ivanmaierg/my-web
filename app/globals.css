@@ -25,6 +25,109 @@
     transform: translate(-50%, -50%);
     transition: opacity 0.2s ease;
   }
+
+  /* Slow scroll utilities optimized for 120Hz */
+  .scroll-slow {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-timeline: auto;
+    animation-timeline: scroll;
+    scroll-snap-type: y proximity;
+    /* Slower scroll momentum */
+    scroll-snap-align: start;
+  }
+
+  .scroll-slow-120hz {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-timeline: auto;
+    animation-timeline: scroll;
+    scroll-snap-type: y proximity;
+    scroll-snap-align: start;
+    /* Extra slow for 120Hz displays */
+    will-change: scroll-position;
+    contain: layout style paint;
+  }
+
+  .scroll-smooth-120hz {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-timeline: auto;
+    animation-timeline: scroll;
+  }
+
+  .scroll-auto {
+    scroll-behavior: auto;
+  }
+
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced scroll padding for better UX */
+  .scroll-padding-top {
+    scroll-padding-top: 2rem;
+  }
+
+  .scroll-padding-safe {
+    scroll-padding-top: env(safe-area-inset-top);
+  }
+
+  /* Optimize scroll performance for high refresh rate displays */
+  .scroll-optimized {
+    will-change: scroll-position;
+    contain: layout style paint;
+  }
+
+  /* Very slow scroll for cinematic effect */
+  .scroll-cinematic {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+    scroll-snap-align: start;
+    scroll-timeline: auto;
+    animation-timeline: scroll;
+    /* Extra slow momentum */
+    transition: scroll-behavior 0.3s ease-in-out;
+  }
+
+  /* Ultra slow scroll for very deliberate movement */
+  .scroll-ultra-slow {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+    scroll-snap-align: start;
+    scroll-timeline: auto;
+    animation-timeline: scroll;
+    /* Ultra slow with momentum control */
+    transition: scroll-behavior 0.8s ease-in-out;
+    will-change: scroll-position;
+    contain: layout style paint;
+  }
+
+  /* Enhanced smooth scroll with better performance */
+  .scroll-enhanced {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+    scroll-snap-align: start;
+    scroll-timeline: auto;
+    animation-timeline: scroll;
+    /* Enhanced smooth with better easing */
+    transition: scroll-behavior 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: scroll-position;
+    contain: layout style paint;
+    /* Better momentum for slow scroll feel */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Slow scroll with momentum damping */
+  .scroll-momentum {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+    scroll-snap-align: start;
+    scroll-timeline: auto;
+    animation-timeline: scroll;
+    /* Momentum damping for slower feel */
+    transition: scroll-behavior 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
 }
 
 @layer base {
@@ -104,7 +207,78 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    /* Slow scroll configuration */
+    scroll-timeline: auto;
+    animation-timeline: scroll;
+    /* Use custom dark background */
+    background-color: #0c1116;
+    min-height: 100vh;
+  }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    /* Slow scroll optimization for 120Hz displays */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    /* Enhanced slow smooth scrolling for high refresh rate displays */
+    scroll-timeline: auto;
+    animation-timeline: scroll;
+    /* Slower scroll timing */
+    scroll-snap-type: y proximity;
+    /* Use custom dark background */
+    background-color: #0c1116;
+    min-height: 100vh;
+  }
+  
+  /* Slow smooth scroll for all scrollable elements */
+  * {
+    scroll-behavior: smooth;
+    /* Add momentum and slower scroll feel */
+    scroll-snap-align: start;
+  }
+  
+  /* Optimize slow scroll performance for 120Hz */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+      /* Slower scroll with custom timing */
+      scroll-timeline: auto;
+    }
+    
+    /* Enhanced slow smooth scrolling with 120Hz optimization */
+    html, body {
+      scroll-behavior: smooth;
+      scroll-padding: 0;
+      scroll-margin: 0;
+      /* Slower scroll momentum */
+      scroll-snap-type: y proximity;
+    }
+  }
+  
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Prevent background flashes during scroll using custom dark color */
+  html, body {
+    background-color: #0c1116 !important;
+    min-height: 100vh;
+  }
+
+  /* Ensure all scrollable areas maintain theme background */
+  * {
+    background-color: transparent;
+  }
+
+  /* Override any potential white backgrounds with theme colors */
+  div, main, section, article, header, footer {
+    background-color: transparent;
   }
 }

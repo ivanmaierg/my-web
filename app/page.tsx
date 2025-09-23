@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ExternalLink } from "lucide-react"
 import { GitHubContributions } from "@/components/github-contributions"
+import { GitHubActivity } from "@/components/github-activity"
 
 export default async function Portfolio() {
   const structuredData = {
@@ -25,11 +26,6 @@ export default async function Portfolio() {
       "@type": "Organization",
       "name": "MercadoLibre",
       "url": "https://mercadolibre.com"
-    },
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "National University of La Plata",
-      "description": "Software Engineering"
     },
     "knowsAbout": [
       "React",
@@ -56,13 +52,13 @@ export default async function Portfolio() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="min-h-screen text-gray-300 font-mono" style={{ backgroundColor: '#0c1116' }}>
+      <div className="min-h-screen text-gray-300 font-mono scroll-smooth scroll-enhanced" style={{ backgroundColor: '#0c1116' }}>
         {/* Header */}
         <header className="max-w-4xl mx-auto p-6 border-b border-gray-800">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+          <div className="flex flex-col mobile:flex-row mobile:items-center mobile:justify-between gap-4">
+            <div className="flex flex-col mobile:flex-row mobile:items-center gap-4 mobile:gap-8">
               <h1 className="text-white font-medium">ivan</h1>
-              <nav className="flex items-center gap-4 sm:gap-6 text-sm" aria-label="Main navigation">
+              <nav className="flex items-center gap-4 mobile:gap-6 text-sm" aria-label="Main navigation">
                 <Link href="mailto:ivanmaiergallardo@gmail.com" className="hover:text-white transition-colors" aria-label="Send email to Ivan">
                   email
                 </Link>
@@ -74,19 +70,19 @@ export default async function Portfolio() {
                 </Link>
               </nav>
             </div>
-            <address className="text-sm not-italic self-start sm:self-auto">
-              <span className="hidden md:inline">Buenos Aires, Argentina</span>
-              <span className="md:hidden">Argentina</span>
+            <address className="text-sm not-italic self-start mobile:self-auto">
+              <span className="hidden mobile:inline">Buenos Aires, Argentina</span>
+              <span className="mobile:hidden">Argentina</span>
             </address>
           </div>
         </header>
 
         {/* Main Content */}
-        <main className="max-w-4xl mx-auto p-4 sm:p-6 space-y-8 sm:space-y-12">
+        <main className="max-w-4xl mx-auto p-4 mobile:p-6 space-y-8 mobile:space-y-12 scroll-smooth scroll-padding-top">
           {/* About */}
-          <section className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
+          <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
             <h2 className="text-sm">About</h2>
-            <div className="md:col-span-3 text-sm leading-relaxed border-b border-gray-800 pb-6 md:pb-8">
+            <div className="mobile:col-span-3 text-sm leading-relaxed border-b border-gray-800 pb-6 mobile:pb-8">
               <p>
                 Frontend Engineer with near 4 years of experience building scalable, high-performance web applications.
                 Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Currently at
@@ -96,20 +92,21 @@ export default async function Portfolio() {
           </section>
 
           {/* GitHub Activity */}
-          <section className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
+          <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
             <h2 className="text-sm flex items-center gap-2">
               Activity
               <ExternalLink className="h-3 w-3" aria-hidden="true" />
             </h2>
-            <div className="md:col-span-3 border-b border-gray-800 pb-6 md:pb-8">
+            <div className="mobile:col-span-3 border-b border-gray-800 pb-6 mobile:pb-8 space-y-8">
               {await GitHubContributions({ username: "ivanmaierg" })}
+              {await GitHubActivity({ username: "ivanmaierg" })}
             </div>
           </section>
 
           {/* Experience */}
-          <section className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
+          <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
             <h2 className="text-sm">Experience</h2>
-            <div className="md:col-span-3 space-y-6 md:space-y-8 border-b border-gray-800 pb-6 md:pb-8">
+            <div className="mobile:col-span-3 space-y-6 mobile:space-y-8 border-b border-gray-800 pb-6 mobile:pb-8">
               <div>
                 <div className="flex items-baseline gap-2 mb-2">
                   <Link
@@ -138,30 +135,19 @@ export default async function Portfolio() {
             </div>
           </section>
 
-          {/* Education */}
-          <section className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
-            <h2 className="text-sm">Education</h2>
-            <div className="md:col-span-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-gray-800 pb-6 md:pb-8">
-              <div>
-                <h3 className="text-white text-sm mb-1">National University of La Plata</h3>
-                <p className="text-sm">Software Engineering</p>
-              </div>
-              <time className="text-xs text-gray-500 self-start sm:self-auto" dateTime="2020/2023">2020—2023</time>
-            </div>
-          </section>
 
           {/* Skills */}
-          <section className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
+          <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
             <h2 className="text-sm">Skills</h2>
-            <div className="md:col-span-3 text-sm border-b border-gray-800 pb-6 md:pb-8">
+            <div className="mobile:col-span-3 text-sm border-b border-gray-800 pb-6 mobile:pb-8">
               <p>React; TypeScript; JavaScript; Next.js; Node.js; Redux</p>
             </div>
           </section>
 
           {/* Interests */}
-          <section className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
+          <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
             <h2 className="text-sm">Interests</h2>
-            <div className="md:col-span-3 text-sm">
+            <div className="mobile:col-span-3 text-sm">
               <p>Microfrontends; Performance optimization; Developer tooling; System architecture</p>
             </div>
           </section>

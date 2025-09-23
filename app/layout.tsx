@@ -11,6 +11,14 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Ivan Maier Gallardo - Frontend Engineer | React & TypeScript Specialist",
   description: "Frontend Engineer with 4+ years of experience building scalable web applications. Currently at MercadoLibre, specializing in React, TypeScript, microfrontends, and developer tooling. Based in Buenos Aires, Argentina.",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" }
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/favicon-32x32.png",
+  },
   keywords: [
     "Frontend Engineer",
     "React Developer",
@@ -74,8 +82,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${jetbrainsMono.className} antialiased`}>{children}</body>
+    <html lang="en" className="scroll-smooth scroll-momentum" style={{ backgroundColor: '#0c1116' }}>
+      <body className={`${jetbrainsMono.className} antialiased scroll-smooth scroll-optimized`} style={{ backgroundColor: '#0c1116' }}>{children}</body>
     </html>
   )
 }

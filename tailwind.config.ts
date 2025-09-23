@@ -12,6 +12,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'mobile': '650px',
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -90,6 +93,13 @@ const config: Config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+      scrollBehavior: {
+        'smooth': 'smooth',
+        'auto': 'auto',
+      },
+      scrollPadding: {
+        'safe': 'env(safe-area-inset-top)',
       },
     },
   },
