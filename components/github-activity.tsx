@@ -39,7 +39,7 @@ async function fetchGitHubData(username: string) {
       headers: {
         'Accept': 'application/vnd.github.v3+json',
       },
-      next: { revalidate: 300 } // Cache for 5 minutes
+      next: { revalidate: 7200 } // Cache for 2 hours
     })
     
     if (!eventsResponse.ok) {
@@ -52,7 +52,7 @@ async function fetchGitHubData(username: string) {
       headers: {
         'Accept': 'application/vnd.github.v3+json',
       },
-      next: { revalidate: 300 } // Cache for 5 minutes
+      next: { revalidate: 7200 } // Cache for 2 hours
     })
     
     if (!reposResponse.ok) {
@@ -122,47 +122,15 @@ export async function GitHubActivity({ username }: GitHubActivityProps) {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-700">
-      {/* Recent Activity */}
-      <div className="space-y-3">
-        <h3 className="text-lg font-medium animate-in slide-in-from-left duration-500 delay-100">Recent Activity</h3>
-        <div className="space-y-2">
-          {events.slice(0, 5).map((event, index) => (
-            <div 
-              key={event.id} 
-              className="flex items-start gap-3 text-sm animate-in slide-in-from-left duration-500"
-              style={{ animationDelay: `${200 + index * 100}ms` }}
-            >
-              <div className="mt-0.5 text-muted-foreground transition-colors duration-200 hover:text-white">
-                {getEventIcon(event.type)}
-              </div>
-              <div className="flex-1 min-w-0">
-                <span className="text-muted-foreground">{getEventDescription(event)} </span>
-                <Link
-                  href={`https://github.com/${event.repo.name}`}
-                  target="_blank"
-                  className="font-medium hover:text-white transition-colors duration-200"
-                >
-                  {event.repo.name}
-                </Link>
-                <div className="flex items-center gap-1 mt-1 text-xs text-muted-foreground">
-                  <Calendar className="h-3 w-3" />
-                  {formatDate(event.created_at)}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Recent Repositories */}
       <div className="space-y-3">
-        <h3 className="text-lg font-medium animate-in slide-in-from-left duration-500 delay-300">Recent Repositories</h3>
+        <h3 className="text-lg font-medium animate-in slide-in-from-left duration-500 delay-100">Recent Repositories</h3>
         <div className="space-y-3">
-          {repos.slice(0, 3).map((repo, index) => (
+          {repos.slice(0, 3).map((repo: GitHubRepo, index: number) => (
             <div 
               key={repo.name} 
               className="p-4 border border-gray-800 rounded-lg animate-in slide-in-from-left duration-500 hover:shadow-lg hover:shadow-white/5 transition-all duration-300 hover:border-gray-700"
-              style={{ animationDelay: `${400 + index * 150}ms` }}
+              style={{ animationDelay: `${200 + index * 150}ms` }}
             >
               <div className="space-y-2">
                 <div className="flex items-start justify-between">

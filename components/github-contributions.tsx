@@ -15,7 +15,7 @@ async function fetchGitHubContributions(username: string): Promise<ContributionD
       headers: {
         'Accept': 'application/vnd.github.v3+json',
       },
-      next: { revalidate: 3600 } // Cache for 1 hour
+      next: { revalidate: 7200 } // Cache for 2 hours
     })
 
     if (!response.ok) {
