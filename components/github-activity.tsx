@@ -1,8 +1,3 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { GitCommit, GitFork, Star, Calendar } from "lucide-react"
 import Link from "next/link"
 
@@ -37,40 +32,43 @@ interface GitHubActivityProps {
   username: string
 }
 
-export function GitHubActivity({ username }: GitHubActivityProps) {
-  const [events, setEvents] = useState<GitHubEvent[]>([])
-  const [repos, setRepos] = useState<GitHubRepo[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    const fetchGitHubData = async () => {
-      try {
-        setLoading(true)
-
-        // Fetch recent events
-        const eventsResponse = await fetch(`https://api.github.com/users/${username}/events/public?per_page=5`)
-        if (!eventsResponse.ok) throw new Error("Failed to fetch events")
-        const eventsData = await eventsResponse.json()
-
-        // Fetch recent repositories
-        const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=3`)
-        if (!reposResponse.ok) throw new Error("Failed to fetch repositories")
-        const reposData = await reposResponse.json()
-
-        setEvents(eventsData)
-        setRepos(reposData)
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "An error occurred")
-      } finally {
-        setLoading(false)
-      }
+async function fetchGitHubData(username: string) {
+  try {
+    // Fetch recent events
+    const eventsResponse = await fetch(`https://api.github.com/users/${username}/events/public?per_page=5`, {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json',
+      },
+      next: { revalidate: 300 } // Cache for 5 minutes
+    })
+    
+    if (!eventsResponse.ok) {
+      throw new Error("Failed to fetch events")
     }
+    const eventsData = await eventsResponse.json()
 
-    if (username) {
-      fetchGitHubData()
+    // Fetch recent repositories
+    const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=3`, {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json',
+      },
+      next: { revalidate: 300 } // Cache for 5 minutes
+    })
+    
+    if (!reposResponse.ok) {
+      throw new Error("Failed to fetch repositories")
     }
-  }, [username])
+    const reposData = await reposResponse.json()
+
+    return { events: eventsData, repos: reposData }
+  } catch (error) {
+    console.error('Error fetching GitHub data:', error)
+    return { events: [], repos: [], error: error instanceof Error ? error.message : "An error occurred" }
+  }
+}
+
+export async function GitHubActivity({ username }: GitHubActivityProps) {
+  const { events, repos, error } = await fetchGitHubData(username)
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
@@ -116,19 +114,6 @@ export function GitHubActivity({ username }: GitHubActivityProps) {
     }
   }
 
-  if (loading) {
-    return (
-      <div className="space-y-3">
-        {[...Array(3)].map((_, i) => (
-          <div key={i} className="animate-pulse">
-            <div className="h-4 bg-muted rounded w-3/4 mb-2"></div>
-            <div className="h-3 bg-muted rounded w-1/2"></div>
-          </div>
-        ))}
-      </div>
-    )
-  }
-
   if (error) {
     return (
       <div className="text-muted-foreground text-sm">Unable to load GitHub activity. Please check the username.</div>
@@ -136,20 +121,26 @@ export function GitHubActivity({ username }: GitHubActivityProps) {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-in fade-in duration-700">
       {/* Recent Activity */}
       <div className="space-y-3">
-        <h3 className="text-lg font-medium">Recent Activity</h3>
+        <h3 className="text-lg font-medium animate-in slide-in-from-left duration-500 delay-100">Recent Activity</h3>
         <div className="space-y-2">
-          {events.slice(0, 5).map((event) => (
-            <div key={event.id} className="flex items-start gap-3 text-sm">
-              <div className="mt-0.5 text-muted-foreground">{getEventIcon(event.type)}</div>
+          {events.slice(0, 5).map((event, index) => (
+            <div 
+              key={event.id} 
+              className="flex items-start gap-3 text-sm animate-in slide-in-from-left duration-500"
+              style={{ animationDelay: `${200 + index * 100}ms` }}
+            >
+              <div className="mt-0.5 text-muted-foreground transition-colors duration-200 hover:text-white">
+                {getEventIcon(event.type)}
+              </div>
               <div className="flex-1 min-w-0">
                 <span className="text-muted-foreground">{getEventDescription(event)} </span>
                 <Link
                   href={`https://github.com/${event.repo.name}`}
                   target="_blank"
-                  className="font-medium hover:text-muted-foreground transition-colors"
+                  className="font-medium hover:text-white transition-colors duration-200"
                 >
                   {event.repo.name}
                 </Link>
@@ -165,25 +156,29 @@ export function GitHubActivity({ username }: GitHubActivityProps) {
 
       {/* Recent Repositories */}
       <div className="space-y-3">
-        <h3 className="text-lg font-medium">Recent Repositories</h3>
+        <h3 className="text-lg font-medium animate-in slide-in-from-left duration-500 delay-300">Recent Repositories</h3>
         <div className="space-y-3">
-          {repos.slice(0, 3).map((repo) => (
-            <Card key={repo.name} className="p-4">
-              <CardContent className="p-0 space-y-2">
+          {repos.slice(0, 3).map((repo, index) => (
+            <div 
+              key={repo.name} 
+              className="p-4 border border-gray-800 rounded-lg animate-in slide-in-from-left duration-500 hover:shadow-lg hover:shadow-white/5 transition-all duration-300 hover:border-gray-700"
+              style={{ animationDelay: `${400 + index * 150}ms` }}
+            >
+              <div className="space-y-2">
                 <div className="flex items-start justify-between">
                   <Link
                     href={repo.html_url}
                     target="_blank"
-                    className="font-medium hover:text-muted-foreground transition-colors"
+                    className="font-medium hover:text-white transition-colors duration-200"
                   >
                     {repo.name}
                   </Link>
                   <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-1 transition-colors duration-200 hover:text-white">
                       <Star className="h-3 w-3" />
                       {repo.stargazers_count}
                     </div>
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-1 transition-colors duration-200 hover:text-white">
                       <GitFork className="h-3 w-3" />
                       {repo.forks_count}
                     </div>
@@ -192,14 +187,14 @@ export function GitHubActivity({ username }: GitHubActivityProps) {
                 {repo.description && <p className="text-sm text-muted-foreground">{repo.description}</p>}
                 <div className="flex items-center gap-2">
                   {repo.language && (
-                    <Badge variant="secondary" className="text-xs">
+                    <span className="px-2 py-1 text-xs bg-gray-800 text-gray-300 rounded transition-colors duration-200 hover:bg-gray-700">
                       {repo.language}
-                    </Badge>
+                    </span>
                   )}
                   <span className="text-xs text-muted-foreground">Updated {formatDate(repo.updated_at)}</span>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
       </div>

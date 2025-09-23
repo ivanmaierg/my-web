@@ -14,9 +14,9 @@ export function CursorGlow() {
 
     // Create cursor element
     const cursor = document.createElement("div")
-    cursor.className = "fixed w-5 h-5 pointer-events-none z-[9999] rounded-full"
+    cursor.className = "fixed w-3 h-3 pointer-events-none z-[9999] rounded-full"
     cursor.style.background =
-      "radial-gradient(circle, rgba(34, 197, 94, 0.8) 0%, rgba(34, 197, 94, 0.2) 50%, transparent 100%)"
+      "radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%)"
     cursor.style.transform = "translate(-50%, -50%)"
     cursor.style.transition = "opacity 0.2s ease"
     document.body.appendChild(cursor)
