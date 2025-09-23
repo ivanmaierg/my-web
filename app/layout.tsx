@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { JetBrains_Mono } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -10,8 +9,8 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "John Doe - Software Engineer",
-  description: "Personal portfolio of John Doe, Software Engineer",
+  title: "Ivan Maier Gallardo - Frontend Engineer",
+  description: "Frontend Engineer specializing in React, TypeScript, and scalable web applications",
   generator: "v0.dev",
 }
 
@@ -22,11 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${jetbrainsMono.className} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
-      </body>
+      <body className={`${jetbrainsMono.className} antialiased`}>{children}</body>
     </html>
   )
 }

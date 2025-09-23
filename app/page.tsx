@@ -1,135 +1,126 @@
 "use client"
-import { ExternalLink, Github, Twitter, BookOpen } from "lucide-react"
 import Link from "next/link"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { GitHubActivity } from "@/components/github-activity"
+import { ExternalLink } from "lucide-react"
+import { GitHubContributions } from "@/components/github-contributions"
+import { CursorGlow } from "@/components/cursor-glow"
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-background font-mono">
-      {/* Fixed Header with Theme Toggle */}
-      <header className="fixed top-0 right-0 z-50 p-4">
-        <ThemeToggle />
+    <div className="min-h-screen bg-black text-gray-300 font-mono">
+      <CursorGlow />
+      {/* Header */}
+      <header className="max-w-4xl mx-auto flex items-center justify-between p-6 border-b border-gray-800">
+        <div className="flex items-center gap-8">
+          <h1 className="text-white font-medium">ivan</h1>
+          <nav className="flex items-center gap-6 text-sm">
+            <Link href="#" className="hover:text-white transition-colors">
+              home
+            </Link>
+            <Link href="mailto:ivanmaiergallardo@gmail.com" className="hover:text-white transition-colors">
+              email
+            </Link>
+            <Link href="https://github.com/ivanmaiergallardo" className="hover:text-white transition-colors">
+              github
+            </Link>
+          </nav>
+        </div>
+        <div className="text-sm">Buenos Aires / AR</div>
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto max-w-2xl px-4 py-16">
-        <div className="space-y-12">
-          {/* Intro */}
-          <section className="space-y-2">
-            <h1 className="text-2xl font-medium">Hey! I'm John</h1>
-            <p className="text-lg text-muted-foreground">I'm a software engineer</p>
-          </section>
+      <main className="max-w-4xl mx-auto p-6 space-y-12">
+        {/* About */}
+        <section className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="text-sm">About</div>
+          <div className="md:col-span-3 text-sm leading-relaxed border-b border-gray-800 pb-8">
+            Frontend Engineer with near 4 years of experience building scalable, high-performance web applications.
+            Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Currently at
+            MercadoLibre architecting microfrontend platforms and improving developer experience.
+          </div>
+        </section>
 
-          {/* About */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-medium">About</h2>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>- I live in Buenos Aires, Argentina</li>
-              <li>- I work at TechCorp as a founding engineer</li>
-              <li>- I'm passionate about frontend development and user experience</li>
-              <li>- I do weird things with React components and state management</li>
-              <li>- I'm obsessed with performance optimization</li>
-              <li>- I love doing reverse engineering</li>
-            </ul>
-          </section>
+        {/* GitHub Activity */}
+        <section className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="text-sm flex items-center gap-2">
+            Recent GitHub
+            <br />
+            Activity
+            <ExternalLink className="h-3 w-3" />
+          </div>
+          <div className="md:col-span-3 border-b border-gray-800 pb-8">
+            <GitHubContributions username="ivanmaiergallardo" />
+          </div>
+        </section>
 
-          {/* Links */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-medium">Links</h2>
-            <ul className="space-y-2">
-              <li>
+        {/* Experience */}
+        <section className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="text-sm">Experience</div>
+          <div className="md:col-span-3 space-y-8 border-b border-gray-800 pb-8">
+            <div>
+              <div className="flex items-baseline gap-2 mb-2">
                 <Link
-                  href="https://github.com"
-                  target="_blank"
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                  href="https://mercadolibre.com"
+                  className="text-white hover:text-gray-300 transition-colors underline text-sm"
                 >
-                  <Github className="h-4 w-4" />
-                  Github
+                  MercadoLibre
                 </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://twitter.com"
-                  target="_blank"
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Twitter className="h-4 w-4" />X
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  target="_blank"
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <BookOpen className="h-4 w-4" />
-                  My Reading List
-                </Link>
-              </li>
-            </ul>
-          </section>
-
-          {/* Projects */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-medium">Projects</h2>
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <Link
-                  href="#"
-                  target="_blank"
-                  className="inline-flex items-center gap-2 font-medium hover:text-muted-foreground transition-colors"
-                >
-                  TaskFlow SDK
-                  <ExternalLink className="h-4 w-4" />
-                </Link>
-                <p className="text-muted-foreground">SDKs, APIs, Reverse Engineering, Frontend</p>
+                <span className="text-sm">Frontend Engineer</span>
               </div>
-
-              <div className="space-y-2">
-                <Link
-                  href="#"
-                  target="_blank"
-                  className="inline-flex items-center gap-2 font-medium hover:text-muted-foreground transition-colors"
-                >
-                  React Performance Toolkit
-                  <ExternalLink className="h-4 w-4" />
-                </Link>
-                <p className="text-muted-foreground">Performance optimization, React internals, Developer tools</p>
-              </div>
-
-              <div className="space-y-2">
-                <Link
-                  href="#"
-                  target="_blank"
-                  className="inline-flex items-center gap-2 font-medium hover:text-muted-foreground transition-colors"
-                >
-                  API Reverse Engineering Tool
-                  <ExternalLink className="h-4 w-4" />
-                </Link>
-                <p className="text-muted-foreground">Reverse engineering, Network analysis, Security research</p>
-              </div>
-
-              <div className="space-y-2">
-                <Link
-                  href="#"
-                  target="_blank"
-                  className="inline-flex items-center gap-2 font-medium hover:text-muted-foreground transition-colors"
-                >
-                  Component Library
-                  <ExternalLink className="h-4 w-4" />
-                </Link>
-                <p className="text-muted-foreground">React components, TypeScript, Design systems</p>
-              </div>
+              <p className="text-sm leading-relaxed mb-3">
+                Leading frontend architecture for a CRM platform serving 25,000+ users. Built microfrontend ecosystem
+                with 100+ modular apps, improved dev velocity 3x, and reduced load times by 30%. Currently developing
+                internal IDE for safer deploys.
+              </p>
+              <div className="text-xs text-gray-500">2023 to Present — Buenos Aires / AR</div>
             </div>
-          </section>
 
-          {/* GitHub Activity */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-medium">Latest GitHub Activity</h2>
-            <GitHubActivity username="your-github-username" />
-          </section>
-        </div>
+            <div>
+              <div className="flex items-baseline gap-2 mb-2">
+                <Link
+                  href="https://enviopack.com"
+                  className="text-white hover:text-gray-300 transition-colors underline text-sm"
+                >
+                  EnvioPack
+                </Link>
+                <span className="text-sm">Frontend Engineer</span>
+              </div>
+              <p className="text-sm leading-relaxed mb-3">
+                Delivered mobile and web features using shared React/React Native logic. Improved UX scores by
+                redesigning critical flows and implemented Redux-Saga architecture for better performance and
+                reliability.
+              </p>
+              <div className="text-xs text-gray-500">2022 to 2023 — Remote</div>
+            </div>
+          </div>
+        </section>
+
+        {/* Education */}
+        <section className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="text-sm">Education</div>
+          <div className="md:col-span-3 flex items-center justify-between border-b border-gray-800 pb-8">
+            <div>
+              <div className="text-white text-sm mb-1">National University of La Plata</div>
+              <div className="text-sm">Software Engineering</div>
+            </div>
+            <div className="text-xs text-gray-500">2020—2025</div>
+          </div>
+        </section>
+
+        {/* Skills */}
+        <section className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="text-sm">Skills</div>
+          <div className="md:col-span-3 text-sm border-b border-gray-800 pb-8">
+            React; TypeScript; JavaScript; Next.js; Node.js; Redux
+          </div>
+        </section>
+
+        {/* Interests */}
+        <section className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="text-sm">Interests</div>
+          <div className="md:col-span-3 text-sm">
+            Microfrontends; Performance optimization; Developer tooling; System architecture
+          </div>
+        </section>
       </main>
     </div>
   )
