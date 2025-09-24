@@ -14,15 +14,12 @@ export function GET(
   req: Request,
   { params }: { params: { slug: string[] } }
 ) {
-  // Get the slug from Next.js params (array of path segments)
   const slug = params.slug;
   
-  // Only handle single-segment paths to prevent multi-segment redirects
   if (slug.length !== 1) {
     redirect('/');
   }
   
-  // Get the first (and only) segment, removing any trailing slashes
   const cleanSlug = slug[0].replace(/\/$/, '');
   
   if (cleanSlug && cleanSlug in redirects) {

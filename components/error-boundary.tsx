@@ -57,7 +57,6 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 }
 
-// GitHub-specific error boundary with custom fallback
 export const GitHubErrorBoundary: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <ErrorBoundary

@@ -40,7 +40,6 @@ export const slowScrollTo = (
     
     const distance = targetPosition - startPosition;
     
-    // Easing functions
     const easingFunctions = {
       'ease': (t: number) => t * t * (3 - 2 * t),
       'ease-in': (t: number) => t * t,
