@@ -1,136 +1,158 @@
-"use client"
-import { ExternalLink, Github, Twitter, BookOpen } from "lucide-react"
 import Link from "next/link"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { ExternalLink } from "lucide-react"
+import { GitHubContributions } from "@/components/github-contributions"
 import { GitHubActivity } from "@/components/github-activity"
 
-export default function Portfolio() {
+export default async function Portfolio() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ivan Maier Gallardo",
+    "jobTitle": "Frontend Engineer",
+    "description": "Frontend Engineer with near 4 years of experience building scalable, high-performance web applications. Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Currently at MercadoLibre architecting microfrontend platforms and improving developer experience.",
+    "url": "https://ivanmaierg.dev",
+    "image": "https://ivanmaierg.dev/og-image.jpg",
+    "sameAs": [
+      "https://github.com/ivanmaierg",
+      "https://www.linkedin.com/in/ivanmaiergallardo/",
+      "mailto:ivanmaiergallardo@gmail.com"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Buenos Aires",
+      "addressCountry": "Argentina"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "MercadoLibre",
+      "url": "https://mercadolibre.com"
+    },
+    "knowsAbout": [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "Next.js",
+      "Node.js",
+      "Redux",
+      "Microfrontends",
+      "Performance optimization",
+      "Developer tooling",
+      "System architecture"
+    ],
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Frontend Engineer",
+      "description": "Building scalable, high-performance web applications. Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Architecting microfrontend platforms and improving developer experience."
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-background font-mono">
-      {/* Fixed Header with Theme Toggle */}
-      <header className="fixed top-0 right-0 z-50 p-4">
-        <ThemeToggle />
-      </header>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <div className="min-h-screen text-gray-300 font-mono scroll-smooth scroll-enhanced" style={{ backgroundColor: '#0c1116' }}>
+        {/* Header */}
+        <header className="max-w-4xl mx-auto p-6 border-b border-gray-800">
+          <div className="flex flex-col mobile:flex-row mobile:items-center mobile:justify-between gap-4">
+            <div className="flex flex-col mobile:flex-row mobile:items-center gap-4 mobile:gap-8">
+              <h1 className="text-white font-medium">ivan</h1>
+              <nav className="flex items-center gap-4 mobile:gap-6 text-sm" aria-label="Main navigation">
+                <Link href="mailto:ivanmaiergallardo@gmail.com" className="hover:text-white transition-colors" aria-label="Send email to Ivan">
+                  email
+                </Link>
+                <Link href="https://github.com/ivanmaierg" className="hover:text-white transition-colors" aria-label="View Ivan's GitHub profile" target="_blank" rel="noopener noreferrer">
+                  github
+                </Link>
+                <Link href="https://www.linkedin.com/in/ivanmaiergallardo/" className="hover:text-white transition-colors" aria-label="View Ivan's LinkedIn profile" target="_blank" rel="noopener noreferrer">
+                  linkedin
+                </Link>
+              </nav>
+            </div>
+            <address className="text-sm not-italic self-start mobile:self-auto">
+              <span className="hidden mobile:inline">Buenos Aires, Argentina</span>
+              <span className="mobile:hidden">Argentina</span>
+            </address>
+          </div>
+        </header>
 
-      {/* Main Content */}
-      <main className="container mx-auto max-w-2xl px-4 py-16">
-        <div className="space-y-12">
-          {/* Intro */}
-          <section className="space-y-2">
-            <h1 className="text-2xl font-medium">Hey! I'm John</h1>
-            <p className="text-lg text-muted-foreground">I'm a software engineer</p>
-          </section>
-
+        {/* Main Content */}
+        <main className="max-w-4xl mx-auto p-4 mobile:p-6 space-y-8 mobile:space-y-12 scroll-smooth scroll-padding-top">
           {/* About */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-medium">About</h2>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>- I live in Buenos Aires, Argentina</li>
-              <li>- I work at TechCorp as a founding engineer</li>
-              <li>- I'm passionate about frontend development and user experience</li>
-              <li>- I do weird things with React components and state management</li>
-              <li>- I'm obsessed with performance optimization</li>
-              <li>- I love doing reverse engineering</li>
-            </ul>
-          </section>
-
-          {/* Links */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-medium">Links</h2>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="https://github.com"
-                  target="_blank"
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Github className="h-4 w-4" />
-                  Github
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://twitter.com"
-                  target="_blank"
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Twitter className="h-4 w-4" />X
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  target="_blank"
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <BookOpen className="h-4 w-4" />
-                  My Reading List
-                </Link>
-              </li>
-            </ul>
-          </section>
-
-          {/* Projects */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-medium">Projects</h2>
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <Link
-                  href="#"
-                  target="_blank"
-                  className="inline-flex items-center gap-2 font-medium hover:text-muted-foreground transition-colors"
-                >
-                  TaskFlow SDK
-                  <ExternalLink className="h-4 w-4" />
-                </Link>
-                <p className="text-muted-foreground">SDKs, APIs, Reverse Engineering, Frontend</p>
-              </div>
-
-              <div className="space-y-2">
-                <Link
-                  href="#"
-                  target="_blank"
-                  className="inline-flex items-center gap-2 font-medium hover:text-muted-foreground transition-colors"
-                >
-                  React Performance Toolkit
-                  <ExternalLink className="h-4 w-4" />
-                </Link>
-                <p className="text-muted-foreground">Performance optimization, React internals, Developer tools</p>
-              </div>
-
-              <div className="space-y-2">
-                <Link
-                  href="#"
-                  target="_blank"
-                  className="inline-flex items-center gap-2 font-medium hover:text-muted-foreground transition-colors"
-                >
-                  API Reverse Engineering Tool
-                  <ExternalLink className="h-4 w-4" />
-                </Link>
-                <p className="text-muted-foreground">Reverse engineering, Network analysis, Security research</p>
-              </div>
-
-              <div className="space-y-2">
-                <Link
-                  href="#"
-                  target="_blank"
-                  className="inline-flex items-center gap-2 font-medium hover:text-muted-foreground transition-colors"
-                >
-                  Component Library
-                  <ExternalLink className="h-4 w-4" />
-                </Link>
-                <p className="text-muted-foreground">React components, TypeScript, Design systems</p>
-              </div>
+          <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
+            <h2 className="text-sm">About</h2>
+            <div className="mobile:col-span-3 text-sm leading-relaxed border-b border-gray-800 pb-6 mobile:pb-8">
+              <p>
+                Frontend Engineer with near 4 years of experience building scalable, high-performance web applications. 
+                Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Currently at 
+                MercadoLibre architecting microfrontend platforms and improving developer experience.
+              </p>
             </div>
           </section>
 
           {/* GitHub Activity */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-medium">Latest GitHub Activity</h2>
-            <GitHubActivity username="your-github-username" />
+          <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
+            <h2 className="text-sm flex items-center gap-2">
+              Activity
+              <ExternalLink className="h-3 w-3" aria-hidden="true" />
+            </h2>
+            <div className="mobile:col-span-3 border-b border-gray-800 pb-6 mobile:pb-8 space-y-8">
+              {await GitHubContributions({ username: "ivanmaierg" })}
+              {await GitHubActivity({ username: "ivanmaierg" })}
+            </div>
           </section>
-        </div>
-      </main>
-    </div>
+
+          {/* Experience */}
+          <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
+            <h2 className="text-sm">Experience</h2>
+            <div className="mobile:col-span-3 space-y-6 mobile:space-y-8 border-b border-gray-800 pb-6 mobile:pb-8">
+              <div>
+                <div className="flex items-baseline gap-2 mb-2">
+                  <Link
+                    href="https://mercadolibre.com"
+                    className="text-white hover:text-gray-300 transition-colors underline text-sm"
+                  >
+                    MercadoLibre
+                  </Link>
+                  <span className="text-sm">Frontend Engineer</span>
+                </div>
+                <div className="text-xs text-muted-foreground">2023 to Present — Buenos Aires / AR</div>
+              </div>
+
+              <div>
+                <div className="flex items-baseline gap-2 mb-2">
+                  <Link
+                    href="https://enviopack.com"
+                    className="text-white hover:text-gray-300 transition-colors underline text-sm"
+                  >
+                    EnvioPack
+                  </Link>
+                  <span className="text-sm">Frontend Engineer</span>
+                </div>
+                <div className="text-xs text-muted-foreground">2022 to 2023 — Remote</div>
+              </div>
+            </div>
+          </section>
+
+
+          {/* Skills */}
+          <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
+            <h2 className="text-sm">Skills</h2>
+            <div className="mobile:col-span-3 text-sm border-b border-gray-800 pb-6 mobile:pb-8">
+              <p>React - TypeScript - JavaScript - Next.js - Node.js - Redux</p>
+            </div>
+          </section>
+
+          {/* Interests */}
+          <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
+            <h2 className="text-sm">Interests</h2>
+            <div className="mobile:col-span-3 text-sm">
+              <p>Microfrontends - Performance optimization - Developer tooling - System architecture</p>
+            </div>
+          </section>
+        </main>
+      </div>
+    </>
   )
 }
