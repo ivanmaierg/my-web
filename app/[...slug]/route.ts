@@ -1,0 +1,37 @@
+import { redirect } from 'next/navigation';
+import { EXTERNAL_LINKS } from '@/lib/constants';
+
+const redirects = {
+  'x': EXTERNAL_LINKS.X,
+  'twitter': EXTERNAL_LINKS.X, // Alternative for twitter
+  'github': EXTERNAL_LINKS.GITHUB,
+  'linkedin': EXTERNAL_LINKS.LINKEDIN,
+  'email': EXTERNAL_LINKS.EMAIL,
+  'mail': EXTERNAL_LINKS.EMAIL, // Alternative for email
+} as const;
+
+export function GET(
+  req: Request,
+  { params }: { params: { slug: string[] } }
+) {
+  // Get the slug from Next.js params (array of path segments)
+  const slug = params.slug;
+  
+  // Only handle single-segment paths to prevent multi-segment redirects
+  if (slug.length !== 1) {
+    redirect('/');
+  }
+  
+  // Get the first (and only) segment, removing any trailing slashes
+  const cleanSlug = slug[0].replace(/\/$/, '');
+  
+  if (cleanSlug && cleanSlug in redirects) {
+    redirect(redirects[cleanSlug as keyof typeof redirects]);
+  }
+
+  redirect('/');
+}
+
+export const runtime = 'edge';
+
+export const revalidate = 2592000; // Revalidate every 1 month (in seconds)

@@ -1,5 +1,6 @@
 import { GitCommit, GitFork, Star, Calendar } from "lucide-react"
 import Link from "next/link"
+import { GitHubErrorBoundary } from './error-boundary'
 
 interface GitHubEvent {
   id: string
