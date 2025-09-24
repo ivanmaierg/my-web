@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ExternalLink } from "lucide-react"
 import { GitHubContributions } from "@/components/github-contributions"
 import { GitHubActivity } from "@/components/github-activity"
+import { GitHubErrorBoundary } from "@/components/error-boundary"
 import { NAVIGATION_ITEMS, STRUCTURED_DATA_LINKS } from "@/lib/constants"
 
 export default async function Portfolio() {
@@ -96,8 +97,12 @@ export default async function Portfolio() {
               <ExternalLink className="h-3 w-3" aria-hidden="true" />
             </h2>
             <div className="mobile:col-span-3 border-b border-gray-800 pb-6 mobile:pb-8 space-y-8">
-              {await GitHubContributions({ username: "ivanmaierg" })}
-              {await GitHubActivity({ username: "ivanmaierg" })}
+              <GitHubErrorBoundary>
+                {await GitHubContributions({ username: "ivanmaierg" })}
+              </GitHubErrorBoundary>
+              <GitHubErrorBoundary>
+                {await GitHubActivity({ username: "ivanmaierg" })}
+              </GitHubErrorBoundary>
             </div>
           </section>
 
