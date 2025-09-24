@@ -117,7 +117,7 @@ export default async function Portfolio() {
                   </Link>
                   <span className="text-sm">Frontend Engineer</span>
                 </div>
-                <div className="text-xs text-gray-500">2023 to Present — Buenos Aires / AR</div>
+                <div className="text-xs text-muted-foreground">2023 to Present — Buenos Aires / AR</div>
               </div>
 
               <div>
@@ -130,7 +130,7 @@ export default async function Portfolio() {
                   </Link>
                   <span className="text-sm">Frontend Engineer</span>
                 </div>
-                <div className="text-xs text-gray-500">2022 to 2023 — Remote</div>
+                <div className="text-xs text-muted-foreground">2022 to 2023 — Remote</div>
               </div>
             </div>
           </section>
