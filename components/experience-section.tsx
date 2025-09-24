@@ -29,17 +29,17 @@ const experiences: ExperienceItem[] = [
 export const ExperienceSection = () => {
   return (
     <Section title="Experience">
-      <div className="space-y-6 mobile:space-y-8 border-b border-gray-800 pb-6 mobile:pb-8">
+      <div className="space-y-6 mobile:space-y-8 border-b border-border pb-6 mobile:pb-8">
         {experiences.map((exp, index) => (
           <div key={index}>
             <div className="flex items-baseline gap-2 mb-2">
               <Link
                 href={exp.companyUrl}
-                className="text-white hover:text-gray-300 transition-colors underline text-sm"
+                className="text-muted-foreground hover:text-foreground transition-colors underline text-sm"
               >
                 {exp.company}
               </Link>
-              <span className="text-sm">{exp.position}</span>
+              <span className="text-sm text-foreground">{exp.position}</span>
             </div>
             <div className="text-xs text-muted-foreground">{exp.period} — {exp.location}</div>
           </div>

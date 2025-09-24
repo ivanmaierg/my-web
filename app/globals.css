@@ -95,72 +95,30 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
     --radius: 0.75rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* GitHub contribution colors for light theme */
+    --contribution-0: 240 5% 95%; /* Very light gray for no contributions */
+    --contribution-1: 214 95% 85%; /* Very light blue for low contributions */
+    --contribution-2: 214 95% 75%; /* Light blue */
+    --contribution-3: 214 95% 65%; /* Medium blue */
+    --contribution-4: 214 95% 55%; /* Darker blue for high contributions */
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 210 29.41% 6.67%; /* hsl(210deg 29.41% 6.67%) */
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 84% 4.9%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 94.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* GitHub contribution colors for dark theme */
+    --contribution-0: 215 27.91% 16.86%; /* hsl(215deg 27.91% 16.86%) for no contributions */
+    --contribution-1: 142 76% 26%; /* Very dark green for low contributions */
+    --contribution-2: 142 76% 36%; /* Dark green */
+    --contribution-3: 142 76% 46%; /* Medium green */
+    --contribution-4: 142 76% 56%; /* Light green for high contributions */
   }
 }
 
@@ -168,6 +126,8 @@
   * {
     @apply border-border;
   }
+
+  
   
   html {
     scroll-behavior: smooth;
@@ -175,8 +135,8 @@
     /* Slow scroll configuration */
     scroll-timeline: auto;
     animation-timeline: scroll;
-    /* Use custom dark background */
-    background-color: #0c1116;
+    /* Use theme-aware background with synchronized transitions */
+    background-color: hsl(var(--background));
     min-height: 100vh;
   }
   
@@ -190,8 +150,8 @@
     animation-timeline: scroll;
     /* Slower scroll timing */
     scroll-snap-type: y proximity;
-    /* Use custom dark background */
-    background-color: #0c1116;
+    /* Use theme-aware background */
+    background-color: hsl(var(--background));
     min-height: 100vh;
   }
   
@@ -227,9 +187,9 @@
     }
   }
 
-  /* Prevent background flashes during scroll using custom dark color */
+  /* Prevent background flashes during scroll using theme-aware colors */
   html, body {
-    background-color: #0c1116 !important;
+    background-color: hsl(var(--background)) !important;
     min-height: 100vh;
   }
 
@@ -242,4 +202,36 @@
   div, main, section, article, header, footer {
     background-color: transparent;
   }
+}
+
+/* GitHub contribution color utilities */
+@layer utilities {
+  .bg-contribution-0 {
+    background-color: hsl(var(--contribution-0));
+  }
+  .bg-contribution-1 {
+    background-color: hsl(var(--contribution-1));
+  }
+  .bg-contribution-2 {
+    background-color: hsl(var(--contribution-2));
+  }
+  .bg-contribution-3 {
+    background-color: hsl(var(--contribution-3));
+  }
+  .bg-contribution-4 {
+    background-color: hsl(var(--contribution-4));
+  }
+  
+  
+  
+  /* Prevent white flash in contribution grid during theme transitions */
+  .bg-contribution-0,
+  .bg-contribution-1,
+  .bg-contribution-2,
+  .bg-contribution-3,
+  .bg-contribution-4 {
+    will-change: background-color;
+    backface-visibility: hidden;
+  }
+
 }

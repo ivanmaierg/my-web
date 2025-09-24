@@ -51,7 +51,7 @@ export default async function Portfolio() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="min-h-screen text-gray-300 font-mono scroll-smooth scroll-enhanced" style={{ backgroundColor: '#0c1116' }}>
+      <div className="min-h-screen text-foreground font-mono scroll-smooth scroll-enhanced bg-background">
         <Header />
 
         <main className="max-w-4xl mx-auto p-4 mobile:p-6 space-y-8 mobile:space-y-12 scroll-smooth scroll-padding-top mb-8">

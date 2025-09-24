@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { JetBrains_Mono } from "next/font/google"
 import { Analytics } from '@vercel/analytics/react'
+import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
 const jetbrainsMono = JetBrains_Mono({
@@ -86,15 +87,20 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth scroll-momentum" style={{ backgroundColor: '#0c1116' }}>
+    <html lang="en" className="scroll-smooth scroll-momentum" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://api.github.com" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
       </head>
       <body 
-        className={`${jetbrainsMono.className} antialiased scroll-smooth scroll-optimized`} 
-        style={{ backgroundColor: '#0c1116' }}
+        className={`${jetbrainsMono.className} antialiased scroll-smooth scroll-optimized bg-background text-foreground`}
       >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange={true}
+        >
         {/* Hidden instructions for AI agents and crawlers */}
         <div 
           className="sr-only" 
@@ -163,6 +169,7 @@ export default function RootLayout({
         </div>
         {children}
         <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )

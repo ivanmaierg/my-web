@@ -12,17 +12,17 @@ interface ContributionGridProps {
 const getContributionColor = (level: number) => {
   switch (level) {
     case 0:
-      return "bg-gray-800"
+      return "bg-contribution-0"
     case 1:
-      return "bg-green-900"
+      return "bg-contribution-1"
     case 2:
-      return "bg-green-700"
+      return "bg-contribution-2"
     case 3:
-      return "bg-green-500"
+      return "bg-contribution-3"
     case 4:
-      return "bg-green-400"
+      return "bg-contribution-4"
     default:
-      return "bg-gray-800"
+      return "bg-contribution-0"
   }
 }
 

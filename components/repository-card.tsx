@@ -38,20 +38,20 @@ export const RepositoryCard = ({ repo, index }: RepositoryCardProps) => {
       className="block"
     >
       <div 
-        className="p-4 border border-gray-800 rounded-lg animate-fade-in hover:shadow-lg hover:shadow-white/5 transition-all duration-300 hover:border-gray-700 cursor-pointer"
+        className="p-4 border border-border rounded-lg animate-fade-in hover:shadow-lg hover:shadow-foreground/5 transition-all duration-300 hover:border-border/80 cursor-pointer"
         style={{ animationDelay: `${0.5 + index * 0.2}s`, animationFillMode: 'both' }}
       >
         <div className="space-y-2">
           <div className="flex items-start justify-between">
-            <span className="font-medium hover:text-white transition-colors duration-200">
+            <span className="font-medium hover:text-foreground transition-colors duration-200">
               {repo.name}
             </span>
             <div className="flex items-center gap-3 text-xs text-muted-foreground">
-              <div className="flex items-center gap-1 transition-colors duration-200 hover:text-white">
+              <div className="flex items-center gap-1 transition-colors duration-200 hover:text-foreground">
                 <Star className="h-3 w-3" />
                 {repo.stargazers_count}
               </div>
-              <div className="flex items-center gap-1 transition-colors duration-200 hover:text-white">
+              <div className="flex items-center gap-1 transition-colors duration-200 hover:text-foreground">
                 <GitFork className="h-3 w-3" />
                 {repo.forks_count}
               </div>
@@ -60,7 +60,7 @@ export const RepositoryCard = ({ repo, index }: RepositoryCardProps) => {
           {repo.description && <p className="text-sm text-muted-foreground">{repo.description}</p>}
           <div className="flex items-center gap-2">
             {repo.language && (
-              <span className="px-2 py-1 text-xs bg-gray-800 text-gray-300 rounded transition-colors duration-200 hover:bg-gray-700">
+              <span className="px-2 py-1 text-xs bg-muted-foreground/10 text-muted-foreground rounded transition-colors duration-200 hover:bg-muted-foreground/20">
                 {repo.language}
               </span>
             )}

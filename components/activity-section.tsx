@@ -11,13 +11,7 @@ interface ActivitySectionProps {
 export const ActivitySection = async ({ username }: ActivitySectionProps) => {
   return (
     <Section title="Activity">
-      <div className="border-b border-gray-800 pb-6 mobile:pb-8 space-y-8">
-        <div className="flex items-center gap-2">
-          <h2 className="text-sm flex items-center gap-2">
-            Activity
-            <ExternalLink className="h-3 w-3" aria-hidden="true" />
-          </h2>
-        </div>
+      <div className="border-b border-border pb-6 mobile:pb-8 space-y-8">
         <GitHubErrorBoundary>
           {await GitHubContributions({ username })}
         </GitHubErrorBoundary>
