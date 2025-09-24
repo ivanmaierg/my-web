@@ -10,15 +10,28 @@ const redirects = {
   'mail': EXTERNAL_LINKS.EMAIL, // Alternative for email
 } as const;
 
-export function GET(req: Request) {
-  const url = new URL(req.url);
-  const slug = url.pathname.split('/').pop(); // Get the last segment
+export function GET(
+  req: Request,
+  { params }: { params: { slug: string[] } }
+) {
+  // Get the slug from Next.js params (array of path segments)
+  const slug = params.slug;
   
-  if (slug && slug in redirects) {
-    redirect(redirects[slug as keyof typeof redirects]);
+  // Only handle single-segment paths to prevent multi-segment redirects
+  if (slug.length !== 1) {
+    redirect('/');
+  }
+  
+  // Get the first (and only) segment, removing any trailing slashes
+  const cleanSlug = slug[0].replace(/\/$/, '');
+  
+  if (cleanSlug && cleanSlug in redirects) {
+    redirect(redirects[cleanSlug as keyof typeof redirects]);
   }
 
   redirect('/');
 }
 
-export const runtime = 'edge'; // Use edge runtime for faster execution
+export const runtime = 'edge';
+
+export const revalidate = 2592000; // Revalidate every 1 month (in seconds)
