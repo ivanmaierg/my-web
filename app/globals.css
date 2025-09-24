@@ -26,36 +26,7 @@
     transition: opacity 0.2s ease;
   }
 
-  /* Slow scroll utilities optimized for 120Hz */
-  .scroll-slow {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scroll-timeline: auto;
-    animation-timeline: scroll;
-    scroll-snap-type: y proximity;
-    /* Slower scroll momentum */
-    scroll-snap-align: start;
-  }
-
-  .scroll-slow-120hz {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scroll-timeline: auto;
-    animation-timeline: scroll;
-    scroll-snap-type: y proximity;
-    scroll-snap-align: start;
-    /* Extra slow for 120Hz displays */
-    will-change: scroll-position;
-    contain: layout style paint;
-  }
-
-  .scroll-smooth-120hz {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scroll-timeline: auto;
-    animation-timeline: scroll;
-  }
-
+  /* Core scroll utilities */
   .scroll-auto {
     scroll-behavior: auto;
   }
@@ -69,36 +40,8 @@
     scroll-padding-top: 2rem;
   }
 
-  .scroll-padding-safe {
-    scroll-padding-top: env(safe-area-inset-top);
-  }
-
   /* Optimize scroll performance for high refresh rate displays */
   .scroll-optimized {
-    will-change: scroll-position;
-    contain: layout style paint;
-  }
-
-  /* Very slow scroll for cinematic effect */
-  .scroll-cinematic {
-    scroll-behavior: smooth;
-    scroll-snap-type: y proximity;
-    scroll-snap-align: start;
-    scroll-timeline: auto;
-    animation-timeline: scroll;
-    /* Extra slow momentum */
-    transition: scroll-behavior 0.3s ease-in-out;
-  }
-
-  /* Ultra slow scroll for very deliberate movement */
-  .scroll-ultra-slow {
-    scroll-behavior: smooth;
-    scroll-snap-type: y proximity;
-    scroll-snap-align: start;
-    scroll-timeline: auto;
-    animation-timeline: scroll;
-    /* Ultra slow with momentum control */
-    transition: scroll-behavior 0.8s ease-in-out;
     will-change: scroll-position;
     contain: layout style paint;
   }
