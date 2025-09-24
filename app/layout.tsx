@@ -83,7 +83,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth scroll-momentum" style={{ backgroundColor: '#0c1116' }}>
-      <body className={`${jetbrainsMono.className} antialiased scroll-smooth scroll-optimized`} style={{ backgroundColor: '#0c1116' }}>{children}</body>
+      <body 
+        className={`${jetbrainsMono.className} antialiased scroll-smooth scroll-optimized`} 
+        style={{ backgroundColor: '#0c1116' }}
+      >
+        {children}
+      </body>
     </html>
   )
 }
