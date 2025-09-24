@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation';
+import { NextResponse } from 'next/server';
 import { EXTERNAL_LINKS } from '@/lib/constants';
 
 const redirects = {
@@ -14,22 +14,19 @@ export function GET(
   req: Request,
   { params }: { params: { slug: string[] } }
 ) {
-  // Get the slug from Next.js params (array of path segments)
   const slug = params.slug;
   
-  // Only handle single-segment paths to prevent multi-segment redirects
   if (slug.length !== 1) {
-    redirect('/');
+    return NextResponse.redirect(new URL('/', req.url));
   }
   
-  // Get the first (and only) segment, removing any trailing slashes
   const cleanSlug = slug[0].replace(/\/$/, '');
   
   if (cleanSlug && cleanSlug in redirects) {
-    redirect(redirects[cleanSlug as keyof typeof redirects]);
+    return NextResponse.redirect(redirects[cleanSlug as keyof typeof redirects]);
   }
 
-  redirect('/');
+  return NextResponse.redirect(new URL('/', req.url));
 }
 
 export const runtime = 'edge';

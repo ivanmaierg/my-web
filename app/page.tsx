@@ -1,19 +1,21 @@
-import Link from "next/link"
-import { ExternalLink } from "lucide-react"
-import { GitHubContributions } from "@/components/github-contributions"
-import { GitHubActivity } from "@/components/github-activity"
-import { GitHubErrorBoundary } from "@/components/error-boundary"
-import { NAVIGATION_ITEMS, STRUCTURED_DATA_LINKS } from "@/lib/constants"
+import { Header } from "@/components/header"
+import { AboutSection } from "@/components/about-section"
+import { ActivitySection } from "@/components/activity-section"
+import { ExperienceSection } from "@/components/experience-section"
+import { SkillsSection } from "@/components/skills-section"
+import { InterestsSection } from "@/components/interests-section"
+import { STRUCTURED_DATA_LINKS } from "@/lib/constants"
 
 export default async function Portfolio() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Ivan Maier Gallardo",
+    "alternateName": ["Ivan Maier", "Ivan Gallardo"],
     "jobTitle": "Frontend Engineer",
-    "description": "Frontend Engineer with near 4 years of experience building scalable, high-performance web applications. Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Currently at MercadoLibre architecting microfrontend platforms and improving developer experience.",
+    "description": "Ivan Maier Gallardo is a Frontend Engineer with near 4 years of experience building scalable, high-performance web applications. Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Currently at MercadoLibre architecting microfrontend platforms and improving developer experience.",
     "url": "https://ivanmaierg.dev",
-    "image": "https://ivanmaierg.dev/og-image.jpg",
+    "image": "https://ivanmaierg.dev/api/og",
     "sameAs": STRUCTURED_DATA_LINKS,
     "address": {
       "@type": "PostalAddress",
@@ -50,110 +52,52 @@ export default async function Portfolio() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="min-h-screen text-gray-300 font-mono scroll-smooth scroll-enhanced" style={{ backgroundColor: '#0c1116' }}>
-        {/* Header */}
-        <header className="max-w-4xl mx-auto p-6 border-b border-gray-800">
-          <div className="flex flex-col mobile:flex-row mobile:items-center mobile:justify-between gap-4">
-            <div className="flex flex-col mobile:flex-row mobile:items-center gap-4 mobile:gap-8">
-              <h1 className="text-white font-medium">ivan</h1>
-              <nav className="flex items-center gap-4 mobile:gap-6 text-sm" aria-label="Main navigation">
-                {NAVIGATION_ITEMS.map((item) => (
-                  <Link 
-                    key={item.href}
-                    href={item.href} 
-                    className="hover:text-white transition-colors" 
-                    aria-label={item.ariaLabel}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-            <address className="text-sm not-italic self-start mobile:self-auto">
-              <span className="hidden mobile:inline">Buenos Aires, Argentina</span>
-              <span className="mobile:hidden">Argentina</span>
-            </address>
-          </div>
-        </header>
+      
+      {/* SEO Content - Hidden but accessible to search engines */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Ivan Maier Gallardo - Frontend Engineer Portfolio</h1>
+        <p>
+          Welcome to the personal portfolio of Ivan Maier Gallardo, a skilled Frontend Engineer 
+          with nearly 4 years of experience in building scalable web applications. Ivan Maier Gallardo 
+          specializes in React, TypeScript, and modern web technologies, currently working at 
+          MercadoLibre in Buenos Aires, Argentina.
+        </p>
+        <h2>About Ivan Maier Gallardo</h2>
+        <p>
+          Ivan Maier Gallardo is a passionate Frontend Engineer who has dedicated his career to 
+          creating exceptional user experiences through innovative web technologies. With expertise 
+          in React, TypeScript, JavaScript, and Next.js, Ivan Maier Gallardo has contributed to 
+          numerous high-impact projects at MercadoLibre.
+        </p>
+        <h2>Professional Experience</h2>
+        <p>
+          Ivan Maier Gallardo currently serves as a Frontend Engineer at MercadoLibre, where he 
+          architects microfrontend platforms and improves developer experience. His work focuses 
+          on building scalable, high-performance web applications that serve millions of users.
+        </p>
+        <h2>Technical Skills</h2>
+        <p>
+          Ivan Maier Gallardo's technical expertise includes React, TypeScript, JavaScript, Next.js, 
+          Node.js, Redux, and modern web development practices. He is passionate about performance 
+          optimization, developer experience, and creating maintainable codebases.
+        </p>
+        <h2>Contact Ivan Maier Gallardo</h2>
+        <p>
+          For professional inquiries, collaborations, or opportunities, you can reach Ivan Maier 
+          Gallardo at ivanmaiergallardo@gmail.com. Based in Buenos Aires, Argentina, Ivan Maier 
+          Gallardo is open to discussing frontend engineering opportunities and technical consulting.
+        </p>
+      </div>
+      
+      <div className="min-h-screen text-foreground font-mono scroll-smooth scroll-enhanced bg-background">
+        <Header />
 
-        {/* Main Content */}
-        <main className="max-w-4xl mx-auto p-4 mobile:p-6 space-y-8 mobile:space-y-12 scroll-smooth scroll-padding-top">
-          {/* About */}
-          <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
-            <h2 className="text-sm">About</h2>
-            <div className="mobile:col-span-3 text-sm leading-relaxed border-b border-gray-800 pb-6 mobile:pb-8">
-              <p>
-                Frontend Engineer with 4 years of experience building scalable, high-performance web applications. 
-                Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Currently at 
-                MercadoLibre architecting microfrontend platforms and improving developer experience.
-              </p>
-            </div>
-          </section>
-
-          {/* GitHub Activity */}
-          <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
-            <h2 className="text-sm flex items-center gap-2">
-              Activity
-              <ExternalLink className="h-3 w-3" aria-hidden="true" />
-            </h2>
-            <div className="mobile:col-span-3 border-b border-gray-800 pb-6 mobile:pb-8 space-y-8">
-              <GitHubErrorBoundary>
-                {await GitHubContributions({ username: "ivanmaierg" })}
-              </GitHubErrorBoundary>
-              <GitHubErrorBoundary>
-                {await GitHubActivity({ username: "ivanmaierg" })}
-              </GitHubErrorBoundary>
-            </div>
-          </section>
-
-          {/* Experience */}
-          <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
-            <h2 className="text-sm">Experience</h2>
-            <div className="mobile:col-span-3 space-y-6 mobile:space-y-8 border-b border-gray-800 pb-6 mobile:pb-8">
-              <div>
-                <div className="flex items-baseline gap-2 mb-2">
-                  <Link
-                    href="https://mercadolibre.com"
-                    className="text-white hover:text-gray-300 transition-colors underline text-sm"
-                  >
-                    MercadoLibre
-                  </Link>
-                  <span className="text-sm">Frontend Engineer</span>
-                </div>
-                <div className="text-xs text-muted-foreground">2023 to Present — Buenos Aires / AR</div>
-              </div>
-
-              <div>
-                <div className="flex items-baseline gap-2 mb-2">
-                  <Link
-                    href="https://enviopack.com"
-                    className="text-white hover:text-gray-300 transition-colors underline text-sm"
-                  >
-                    EnvioPack
-                  </Link>
-                  <span className="text-sm">Frontend Engineer</span>
-                </div>
-                <div className="text-xs text-muted-foreground">2022 to 2023 — Remote</div>
-              </div>
-            </div>
-          </section>
-
-
-          {/* Skills */}
-          <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
-            <h2 className="text-sm">Skills</h2>
-            <div className="mobile:col-span-3 text-sm border-b border-gray-800 pb-6 mobile:pb-8">
-              <p>React - TypeScript - JavaScript - Next.js - Node.js - Redux</p>
-            </div>
-          </section>
-
-          {/* Interests */}
-          <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
-            <h2 className="text-sm">Interests</h2>
-            <div className="mobile:col-span-3 text-sm">
-              <p>Microfrontends - Performance optimization - Developer tooling - System architecture</p>
-            </div>
-          </section>
+        <main className="max-w-4xl mx-auto p-4 mobile:p-6 space-y-8 mobile:space-y-12 scroll-smooth scroll-padding-top mb-8">
+          <AboutSection />
+          <ActivitySection username="ivanmaierg" />
+          <ExperienceSection />
+          <SkillsSection />
+          <InterestsSection />
         </main>
       </div>
     </>

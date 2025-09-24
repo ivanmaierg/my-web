@@ -1,4 +1,3 @@
-// Social media and contact links
 export const SOCIAL_LINKS = {
   EMAIL: '/email',
   GITHUB: '/github', 
@@ -6,7 +5,6 @@ export const SOCIAL_LINKS = {
   LINKEDIN: '/linkedin',
 } as const;
 
-// External URLs (for redirects)
 export const EXTERNAL_LINKS = {
   EMAIL: 'mailto:ivanmaiergallardo@gmail.com',
   GITHUB: 'https://github.com/ivanmaierg',
@@ -14,7 +12,6 @@ export const EXTERNAL_LINKS = {
   LINKEDIN: 'https://www.linkedin.com/in/ivanmaiergallardo/',
 } as const;
 
-// Navigation items with labels and accessibility
 export const NAVIGATION_ITEMS = [
   {
     href: SOCIAL_LINKS.EMAIL,
@@ -38,7 +35,6 @@ export const NAVIGATION_ITEMS = [
   },
 ] as const;
 
-// Structured data URLs
 export const STRUCTURED_DATA_LINKS = [
   'https://ivanmaierg.dev/github',
   'https://ivanmaierg.dev/linkedin', 
