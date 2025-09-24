@@ -160,9 +160,9 @@ export async function GitHubContributions({ username }: GitHubContributionsProps
   })
 
   return (
-    <div className="space-y-4 animate-in fade-in duration-700">
+    <div className="space-y-4 animate-fade-in">
       {/* Month labels */}
-      <div className="flex text-xs text-gray-500 ml-8 animate-in slide-in-from-left duration-500 delay-100 overflow-hidden">
+      <div className="flex text-xs text-muted-foreground ml-8 animate-fade-in overflow-hidden" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
         {months.slice(1, 9).map((month, index) => (
           <div key={month} className="w-10 text-center flex-shrink-0" style={{ marginLeft: index === 0 ? "0" : "32px" }}>
             {month}
@@ -171,9 +171,9 @@ export async function GitHubContributions({ username }: GitHubContributionsProps
       </div>
 
       {/* Contribution grid */}
-      <div className="flex gap-1 animate-in slide-in-from-left duration-500 delay-200 overflow-hidden">
+      <div className="flex gap-1 animate-fade-in overflow-hidden" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
         {/* Day labels */}
-        <div className="flex flex-col gap-1 text-xs text-gray-500 pr-2 flex-shrink-0">
+        <div className="flex flex-col gap-1 text-xs text-muted-foreground pr-2 flex-shrink-0">
           <div className="h-3"></div>
           <div className="h-3">Mon</div>
           <div className="h-3"></div>
@@ -190,11 +190,11 @@ export async function GitHubContributions({ username }: GitHubContributionsProps
               {week.map((day: ContributionDay | null, dayIndex: number) => (
                 <div
                   key={`${weekIndex + 1}-${dayIndex}`}
-                  className={`w-3 h-3 rounded-sm transition-all duration-300 hover:scale-110 ${day ? getContributionColor(day.level) : "bg-transparent"}`}
+                  className={`w-3 h-3 rounded-sm transition-all duration-300 hover:scale-110 animate-fade-in ${day ? getContributionColor(day.level) : "bg-transparent"}`}
                   title={day ? `${day.count} contributions on ${day.date}` : ""}
                   style={{ 
-                    animationDelay: `${(weekIndex * 7 + dayIndex) * 10}ms`,
-                    animation: 'fadeIn 0.3s ease-in-out forwards'
+                    animationDelay: `${0.3 + (weekIndex * 7 + dayIndex) * 0.005}s`,
+                    animationFillMode: 'both'
                   }}
                 />
               ))}
@@ -204,7 +204,7 @@ export async function GitHubContributions({ username }: GitHubContributionsProps
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-between text-xs text-gray-500 animate-in slide-in-from-left duration-500 delay-300">
+      <div className="flex items-center justify-between text-xs text-muted-foreground animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
         <div className="transition-colors duration-200 hover:text-white">{totalContributions} contributions in {new Date().getFullYear()}</div>
         <div className="flex items-center gap-2">
           <span>Less</span>

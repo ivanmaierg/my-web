@@ -121,15 +121,15 @@ export async function GitHubActivity({ username }: GitHubActivityProps) {
   }
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-700">
+    <div className="space-y-6 animate-fade-in">
       {/* Recent Repositories */}
       <div className="space-y-3">
         <div className="space-y-3">
           {repos.slice(0, 3).map((repo: GitHubRepo, index: number) => (
             <div 
               key={repo.name} 
-              className="p-4 border border-gray-800 rounded-lg animate-in slide-in-from-left duration-500 hover:shadow-lg hover:shadow-white/5 transition-all duration-300 hover:border-gray-700"
-              style={{ animationDelay: `${200 + index * 150}ms` }}
+              className="p-4 border border-gray-800 rounded-lg animate-fade-in hover:shadow-lg hover:shadow-white/5 transition-all duration-300 hover:border-gray-700"
+              style={{ animationDelay: `${0.5 + index * 0.2}s`, animationFillMode: 'both' }}
             >
               <div className="space-y-2">
                 <div className="flex items-start justify-between">
