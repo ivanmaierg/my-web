@@ -33,12 +33,14 @@ export const ExperienceSection = () => {
         {experiences.map((exp, index) => (
           <div key={index}>
             <div className="flex items-baseline gap-2 mb-2">
-              <Link
+              <a
                 href={exp.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors underline text-sm"
               >
                 {exp.company}
-              </Link>
+              </a>
               <span className="text-sm text-foreground">{exp.position}</span>
             </div>
             <div className="text-xs text-muted-foreground">{exp.period} — {exp.location}</div>

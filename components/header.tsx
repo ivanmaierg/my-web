@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { NAVIGATION_ITEMS } from "@/lib/constants"
+import { NAVIGATION_ITEMS, EXTERNAL_LINKS } from "@/lib/constants"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export const Header = () => {
@@ -9,16 +9,40 @@ export const Header = () => {
         <div className="flex flex-col mobile:flex-row mobile:items-center gap-4 mobile:gap-8">
           <h1 className="text-foreground font-medium">ivan</h1>
           <nav className="flex items-center gap-4 mobile:gap-6 text-sm" aria-label="Main navigation">
-            {NAVIGATION_ITEMS.map((item) => (
-              <Link 
-                key={item.href}
-                href={item.href} 
-                className="hover:text-foreground transition-colors text-muted-foreground" 
-                aria-label={item.ariaLabel}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAVIGATION_ITEMS.map((item) => {
+              const isExternal = item.href.startsWith('/email') || item.href.startsWith('/github') || item.href.startsWith('/x') || item.href.startsWith('/linkedin');
+              
+              if (isExternal) {
+                const externalUrl = item.href === '/email' ? EXTERNAL_LINKS.EMAIL :
+                                  item.href === '/github' ? EXTERNAL_LINKS.GITHUB :
+                                  item.href === '/x' ? EXTERNAL_LINKS.X :
+                                  item.href === '/linkedin' ? EXTERNAL_LINKS.LINKEDIN : '#';
+                
+                return (
+                  <a 
+                    key={item.href}
+                    href={externalUrl} 
+                    className="hover:text-foreground transition-colors text-muted-foreground" 
+                    aria-label={item.ariaLabel}
+                    target={externalUrl.startsWith('mailto:') ? '_self' : '_blank'}
+                    rel={externalUrl.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                  >
+                    {item.label}
+                  </a>
+                );
+              }
+              
+              return (
+                <Link 
+                  key={item.href}
+                  href={item.href} 
+                  className="hover:text-foreground transition-colors text-muted-foreground" 
+                  aria-label={item.ariaLabel}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
         </div>
         <div className="flex items-center gap-4">

@@ -1,5 +1,4 @@
 import { Star, GitFork } from "lucide-react"
-import Link from "next/link"
 
 interface GitHubRepo {
   name: string
@@ -31,10 +30,11 @@ const formatDate = (dateString: string) => {
 
 export const RepositoryCard = ({ repo, index }: RepositoryCardProps) => {
   return (
-    <Link
+    <a
       key={repo.name}
       href={repo.html_url}
       target="_blank"
+      rel="noopener noreferrer"
       className="block"
     >
       <div 
@@ -68,6 +68,6 @@ export const RepositoryCard = ({ repo, index }: RepositoryCardProps) => {
           </div>
         </div>
       </div>
-    </Link>
+    </a>
   )
 }

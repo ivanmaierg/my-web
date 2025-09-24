@@ -96,7 +96,6 @@ export default function RootLayout({
       <head>
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
-        <link rel="preload" href="/favicon-32x32.png" as="image" type="image/png" />
         
         {/* Additional SEO Meta Tags */}
         <meta name="google-site-verification" content="your-google-verification-code" />
@@ -112,7 +111,7 @@ export default function RootLayout({
         <meta name="target" content="all" />
         <meta name="HandheldFriendly" content="True" />
         <meta name="MobileOptimized" content="320" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <style dangerouslySetInnerHTML={{
           __html: `
@@ -157,17 +156,6 @@ export default function RootLayout({
             img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}
             img,video{max-width:100%;height:auto}
             [hidden]{display:none}
-          `
-        }} />
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            // Load CSS asynchronously to avoid render blocking
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = '/_next/static/css/app/layout.css';
-            link.media = 'print';
-            link.onload = function() { this.media = 'all'; };
-            document.head.appendChild(link);
           `
         }} />
         <script
