@@ -1,30 +1,47 @@
-# Minimalistic portfolio
+# My web
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+## Features
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/getsuga743s-projects/v0-minimalistic-portfolio)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/mMH5yWQRBHQ)
+- Responsive design optimized for all devices
+- Dark theme with clean typography
+- GitHub activity and contributions visualization
+- Contact information and social links
+- Performance optimized with Next.js
 
-## Overview
+## Tech Stack
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Deployment**: Vercel
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   pnpm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   pnpm dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Customization
+
+- Update personal information in `app/page.tsx`
+- Modify styling in `app/globals.css` and component files
+- Add or remove sections as needed
+- Configure GitHub username in the components
 
 ## Deployment
 
-Your project is live at:
-
-**[https://vercel.com/getsuga743s-projects/v0-minimalistic-portfolio](https://vercel.com/getsuga743s-projects/v0-minimalistic-portfolio)**
-
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.dev/chat/projects/mMH5yWQRBHQ](https://v0.dev/chat/projects/mMH5yWQRBHQ)**
-
-## How It Works
-
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+The project is configured for easy deployment on Vercel. Simply connect your GitHub repository to Vercel for automatic deployments.
