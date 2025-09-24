@@ -83,7 +83,7 @@ export default async function Portfolio() {
             <h2 className="text-sm">About</h2>
             <div className="mobile:col-span-3 text-sm leading-relaxed border-b border-gray-800 pb-6 mobile:pb-8">
               <p>
-                Frontend Engineer with near 4 years of experience building scalable, high-performance web applications. 
+                Frontend Engineer with 4 years of experience building scalable, high-performance web applications. 
                 Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Currently at 
                 MercadoLibre architecting microfrontend platforms and improving developer experience.
               </p>

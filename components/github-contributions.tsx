@@ -1,4 +1,3 @@
-import { GitHubErrorBoundary } from './error-boundary'
 
 interface GitHubContributionsProps {
   username: string
@@ -167,47 +166,62 @@ export async function GitHubContributions({ username }: GitHubContributionsProps
     }
   })
 
+  // Build month labels aligned to week columns (label when a week contains the 1st day)
+  const monthLabels: string[] = weeks.map((week) => {
+    const firstOfMonth = week.find((d) => d && new Date(d.date).getDate() === 1)
+    if (!firstOfMonth) return ""
+    const m = new Date(firstOfMonth.date).getMonth()
+    return months[m]
+  })
+
   return (
     <div className="space-y-4 animate-fade-in">
-      {/* Month labels */}
-      <div className="flex text-xs text-muted-foreground ml-8 animate-fade-in overflow-hidden" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-        {months.slice(1, 9).map((month, index) => (
-          <div key={month} className="w-10 text-center flex-shrink-0" style={{ marginLeft: index === 0 ? "0" : "32px" }}>
-            {month}
-          </div>
-        ))}
-      </div>
-
-      {/* Contribution grid */}
-      <div className="flex gap-1 animate-fade-in overflow-hidden" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
-        {/* Day labels */}
-        <div className="flex flex-col gap-1 text-xs text-muted-foreground pr-2 flex-shrink-0">
-          <div className="h-3"></div>
-          <div className="h-3">Mon</div>
-          <div className="h-3"></div>
-          <div className="h-3">Wed</div>
-          <div className="h-3"></div>
-          <div className="h-3">Fri</div>
-          <div className="h-3"></div>
-        </div>
-
-        {/* Grid */}
-        <div className="flex gap-1 min-w-max">
-          {weeks.slice(2).map((week, weekIndex) => (
-            <div key={weekIndex + 1} className="flex flex-col gap-1 flex-shrink-0">
-              {week.map((day: ContributionDay | null, dayIndex: number) => (
-                <div
-                  key={`${weekIndex + 1}-${dayIndex}`}
-                  className={`w-3 h-3 rounded-sm transition-all duration-300 hover:scale-110 animate-fade-in ${day ? getContributionColor(day.level) : "bg-transparent"}`}
-                  title={day ? `${day.count} contributions on ${day.date}` : ""}
-                  style={{ 
-                    animationDelay: `${0.3 + (weekIndex * 7 + dayIndex) * 0.005}s`,
-                    animationFillMode: 'both'
-                  }}
-                />
+      <div className="overflow-x-auto scrollbar-none scroll-right-initial">
+        <div className="min-w-max scroll-right-content">
+          {/* Month labels aligned with week columns */}
+          <div className="flex items-start gap-1 text-xs text-muted-foreground mb-2 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+            <div className="w-8 flex-shrink-0" />
+            <div className="flex gap-1">
+              {monthLabels.map((label, i) => (
+                <div key={`ml-${i}`} className="w-3 text-center flex-shrink-0">
+                  {label}
+                </div>
               ))}
             </div>
-          ))}
+          </div>
+
+          {/* Contribution grid */}
+          <div className="flex gap-1 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+            {/* Day labels */}
+            <div className="w-8 flex flex-col gap-1 text-xs text-muted-foreground flex-shrink-0">
+              <div className="h-3"></div>
+              <div className="h-3">Mon</div>
+              <div className="h-3"></div>
+              <div className="h-3">Wed</div>
+              <div className="h-3"></div>
+              <div className="h-3">Fri</div>
+              <div className="h-3"></div>
+            </div>
+
+            {/* Grid */}
+            <div className="flex gap-1 min-w-max">
+              {weeks.map((week, weekIndex) => (
+                <div key={weekIndex + 1} className={`flex flex-col gap-1 flex-shrink-0`}>
+                  {week.map((day: ContributionDay | null, dayIndex: number) => (
+                    <div
+                      key={`${weekIndex + 1}-${dayIndex}`}
+                      className={`w-3 h-3 rounded-sm transition-all duration-300 hover:scale-110 animate-fade-in ${day ? getContributionColor(day.level) : "bg-transparent"}`}
+                      title={day ? `${day.count} contributions on ${day.date}` : ""}
+                      style={{ 
+                        animationDelay: `${0.3 + (weekIndex * 7 + dayIndex) * 0.005}s`,
+                        animationFillMode: 'both'
+                      }}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
