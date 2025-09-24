@@ -9,7 +9,7 @@ export default async function Portfolio() {
     "@type": "Person",
     "name": "Ivan Maier Gallardo",
     "jobTitle": "Frontend Engineer",
-    "description": "Frontend Engineer with 4+ years of experience building scalable web applications. Currently at MercadoLibre, specializing in React, TypeScript, and microfrontends.",
+    "description": "Frontend Engineer with near 4 years of experience building scalable, high-performance web applications. Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Currently at MercadoLibre architecting microfrontend platforms and improving developer experience.",
     "url": "https://ivanmaierg.dev",
     "image": "https://ivanmaierg.dev/og-image.jpg",
     "sameAs": [
@@ -35,14 +35,14 @@ export default async function Portfolio() {
       "Node.js",
       "Redux",
       "Microfrontends",
-      "Performance Optimization",
-      "Developer Tooling",
-      "System Architecture"
+      "Performance optimization",
+      "Developer tooling",
+      "System architecture"
     ],
     "hasOccupation": {
       "@type": "Occupation",
       "name": "Frontend Engineer",
-      "description": "Building scalable, high-performance web applications with React and TypeScript"
+      "description": "Building scalable, high-performance web applications. Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Architecting microfrontend platforms and improving developer experience."
     }
   }
 
@@ -84,8 +84,8 @@ export default async function Portfolio() {
             <h2 className="text-sm">About</h2>
             <div className="mobile:col-span-3 text-sm leading-relaxed border-b border-gray-800 pb-6 mobile:pb-8">
               <p>
-                Frontend Engineer with near 4 years of experience building scalable, high-performance web applications.
-                Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Currently at
+                Frontend Engineer with near 4 years of experience building scalable, high-performance web applications. 
+                Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Currently at 
                 MercadoLibre architecting microfrontend platforms and improving developer experience.
               </p>
             </div>
@@ -140,7 +140,7 @@ export default async function Portfolio() {
           <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
             <h2 className="text-sm">Skills</h2>
             <div className="mobile:col-span-3 text-sm border-b border-gray-800 pb-6 mobile:pb-8">
-              <p>React; TypeScript; JavaScript; Next.js; Node.js; Redux</p>
+              <p>React - TypeScript - JavaScript - Next.js - Node.js - Redux</p>
             </div>
           </section>
 
@@ -148,7 +148,7 @@ export default async function Portfolio() {
           <section className="grid grid-cols-1 mobile:grid-cols-4 gap-4 mobile:gap-8">
             <h2 className="text-sm">Interests</h2>
             <div className="mobile:col-span-3 text-sm">
-              <p>Microfrontends; Performance optimization; Developer tooling; System architecture</p>
+              <p>Microfrontends - Performance optimization - Developer tooling - System architecture</p>
             </div>
           </section>
         </main>

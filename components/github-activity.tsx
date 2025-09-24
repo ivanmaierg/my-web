@@ -124,7 +124,6 @@ export async function GitHubActivity({ username }: GitHubActivityProps) {
     <div className="space-y-6 animate-in fade-in duration-700">
       {/* Recent Repositories */}
       <div className="space-y-3">
-        <h3 className="text-lg font-medium animate-in slide-in-from-left duration-500 delay-100">Recent Repositories</h3>
         <div className="space-y-3">
           {repos.slice(0, 3).map((repo: GitHubRepo, index: number) => (
             <div 

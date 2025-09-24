@@ -162,8 +162,8 @@ export async function GitHubContributions({ username }: GitHubContributionsProps
   return (
     <div className="space-y-4 animate-in fade-in duration-700">
       {/* Month labels */}
-      <div className="flex text-xs text-gray-500 ml-8 animate-in slide-in-from-left duration-500 delay-100 overflow-hidden mobile:overflow-visible">
-        {months.slice(1, 8).map((month, index) => (
+      <div className="flex text-xs text-gray-500 ml-8 animate-in slide-in-from-left duration-500 delay-100 overflow-hidden">
+        {months.slice(1, 9).map((month, index) => (
           <div key={month} className="w-10 text-center flex-shrink-0" style={{ marginLeft: index === 0 ? "0" : "32px" }}>
             {month}
           </div>
@@ -171,7 +171,7 @@ export async function GitHubContributions({ username }: GitHubContributionsProps
       </div>
 
       {/* Contribution grid */}
-      <div className="flex gap-1 animate-in slide-in-from-left duration-500 delay-200 overflow-hidden mobile:overflow-visible">
+      <div className="flex gap-1 animate-in slide-in-from-left duration-500 delay-200 overflow-hidden">
         {/* Day labels */}
         <div className="flex flex-col gap-1 text-xs text-gray-500 pr-2 flex-shrink-0">
           <div className="h-3"></div>
@@ -185,7 +185,7 @@ export async function GitHubContributions({ username }: GitHubContributionsProps
 
         {/* Grid */}
         <div className="flex gap-1 min-w-max">
-          {weeks.slice(1).map((week, weekIndex) => (
+          {weeks.slice(2).map((week, weekIndex) => (
             <div key={weekIndex + 1} className="flex flex-col gap-1 flex-shrink-0">
               {week.map((day: ContributionDay | null, dayIndex: number) => (
                 <div
