@@ -10,7 +10,7 @@ export const SOCIAL_LINKS = {
 export const EXTERNAL_LINKS = {
   EMAIL: 'mailto:ivanmaiergallardo@gmail.com',
   GITHUB: 'https://github.com/ivanmaierg',
-  X: 'https://x.com/ivanmaierg',
+  X: 'https://x.com/imaierg',
   LINKEDIN: 'https://www.linkedin.com/in/ivanmaiergallardo/',
 } as const;
 
