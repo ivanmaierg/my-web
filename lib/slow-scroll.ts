@@ -103,7 +103,7 @@ export const slowScrollToBottom = (options: SlowScrollOptions = {}): Promise<voi
  * Custom scroll speed multiplier
  * Higher values = slower scroll
  */
-export const setScrollSpeed = (speed: number = 1) => {
+export const setScrollSpeed = (speed = 1) => {
   const style = document.createElement('style');
   style.textContent = `
     html {
