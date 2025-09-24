@@ -51,11 +51,16 @@ async function fetchGitHubContributions(username: string): Promise<ContributionD
     
     // Convert to contribution format with better scaling
     const contributions: ContributionDay[] = []
-    for (let d = new Date(startDate); d <= today; d.setDate(d.getDate() + 1)) {
+    for (let d = new Date(startDate); d <= today; d = new Date(d.getTime() + 24 * 60 * 60 * 1000)) {
       const dateStr = d.toISOString().split("T")[0]
       const count = contributionsMap.get(dateStr) || 0
       // Better scaling: 1-2 activities = level 1, 3-5 = level 2, 6-10 = level 3, 10+ = level 4
-      const level = Math.min(4, Math.max(0, Math.floor((count - 1) / 2) + 1))
+      let level = 0
+      if (count >= 1 && count <= 2) level = 1
+      else if (count >= 3 && count <= 5) level = 2
+      else if (count >= 6 && count <= 10) level = 3
+      else if (count > 10) level = 4
+      
       contributions.push({
         date: dateStr,
         count,
@@ -77,7 +82,7 @@ const generateMockContributions = (): ContributionDay[] => {
   const today = new Date()
   const startDate = new Date(today.getFullYear(), 0, 1) // January 1st of current year
 
-  for (let d = new Date(startDate); d <= today; d.setDate(d.getDate() + 1)) {
+  for (let d = new Date(startDate); d <= today; d = new Date(d.getTime() + 24 * 60 * 60 * 1000)) {
     // More realistic distribution: 70% no activity, 20% low, 8% medium, 2% high
     const rand = Math.random()
     let level = 0
@@ -97,7 +102,7 @@ const generateMockContributions = (): ContributionDay[] => {
     }
     
     contributions.push({
-      date: new Date(d).toISOString().split("T")[0],
+      date: d.toISOString().split("T")[0],
       count,
       level,
     })
