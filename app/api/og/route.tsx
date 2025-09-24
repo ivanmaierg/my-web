@@ -14,18 +14,19 @@ export async function GET() {
           alignItems: 'center',
           justifyContent: 'center',
           backgroundColor: '#0c1116',
-          backgroundImage: 'linear-gradient(45deg, #0c1116 0%, #1a1a1a 100%)',
+          fontFamily: 'JetBrains Mono, monospace',
         }}
       >
-        {/* Main Content */}
+        {/* Main Content Container */}
         <div
           style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '40px',
+            padding: '80px',
             textAlign: 'center',
+            maxWidth: '900px',
           }}
         >
           {/* Name */}
@@ -34,92 +35,51 @@ export async function GET() {
               fontSize: 64,
               fontWeight: 'bold',
               color: '#ffffff',
-              marginBottom: '20px',
-              fontFamily: 'monospace',
+              marginBottom: '24px',
+              letterSpacing: '-0.01em',
             }}
           >
-            Ivan Maier Gallardo
+            ivan
           </div>
           
           {/* Title */}
           <div
             style={{
-              fontSize: 32,
-              color: '#22c55e',
-              marginBottom: '30px',
-              fontFamily: 'monospace',
+              fontSize: 28,
+              color: '#9ca3af',
+              marginBottom: '48px',
+              fontWeight: '400',
             }}
           >
             Frontend Engineer
           </div>
           
-          {/* Skills */}
+          {/* Skills - Simple list */}
           <div
             style={{
-              display: 'flex',
-              flexDirection: 'row',
-              gap: '20px',
-              marginBottom: '30px',
+              fontSize: 20,
+              color: '#9ca3af',
+              marginBottom: '48px',
+              lineHeight: 1.6,
             }}
           >
-            {['React', 'TypeScript', 'Next.js', 'Node.js'].map((skill) => (
-              <div
-                key={skill}
-                style={{
-                  backgroundColor: '#1f2937',
-                  color: '#ffffff',
-                  padding: '8px 16px',
-                  borderRadius: '8px',
-                  fontSize: '18px',
-                  fontFamily: 'monospace',
-                }}
-              >
-                {skill}
-              </div>
-            ))}
+            React - TypeScript - JavaScript - Next.js - Node.js - Redux
           </div>
           
           {/* Location & Company */}
           <div
             style={{
+              fontSize: 18,
+              color: '#6b7280',
               display: 'flex',
               flexDirection: 'row',
-              gap: '40px',
-              fontSize: '20px',
-              color: '#9ca3af',
-              fontFamily: 'monospace',
+              gap: '48px',
             }}
           >
-            <span>📍 Buenos Aires, Argentina</span>
-            <span>🏢 MercadoLibre</span>
+            <span>Buenos Aires, Argentina</span>
+            <span>MercadoLibre</span>
           </div>
         </div>
-        
-        {/* Decorative Elements */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '20px',
-            right: '20px',
-            width: '100px',
-            height: '100px',
-            backgroundColor: '#22c55e',
-            borderRadius: '50%',
-            opacity: '0.1',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '20px',
-            left: '20px',
-            width: '60px',
-            height: '60px',
-            backgroundColor: '#22c55e',
-            borderRadius: '50%',
-            opacity: '0.1',
-          }}
-        />
       </div>
     ),
     {
