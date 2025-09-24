@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ExternalLink } from "lucide-react"
 import { GitHubContributions } from "@/components/github-contributions"
 import { GitHubActivity } from "@/components/github-activity"
+import { NAVIGATION_ITEMS, STRUCTURED_DATA_LINKS } from "@/lib/constants"
 
 export default async function Portfolio() {
   const structuredData = {
@@ -12,11 +13,7 @@ export default async function Portfolio() {
     "description": "Frontend Engineer with near 4 years of experience building scalable, high-performance web applications. Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Currently at MercadoLibre architecting microfrontend platforms and improving developer experience.",
     "url": "https://ivanmaierg.dev",
     "image": "https://ivanmaierg.dev/og-image.jpg",
-    "sameAs": [
-      "https://github.com/ivanmaierg",
-      "https://www.linkedin.com/in/ivanmaiergallardo/",
-      "mailto:ivanmaiergallardo@gmail.com"
-    ],
+    "sameAs": STRUCTURED_DATA_LINKS,
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Buenos Aires",
@@ -59,15 +56,16 @@ export default async function Portfolio() {
             <div className="flex flex-col mobile:flex-row mobile:items-center gap-4 mobile:gap-8">
               <h1 className="text-white font-medium">ivan</h1>
               <nav className="flex items-center gap-4 mobile:gap-6 text-sm" aria-label="Main navigation">
-                <Link href="mailto:ivanmaiergallardo@gmail.com" className="hover:text-white transition-colors" aria-label="Send email to Ivan">
-                  email
-                </Link>
-                <Link href="https://github.com/ivanmaierg" className="hover:text-white transition-colors" aria-label="View Ivan's GitHub profile" target="_blank" rel="noopener noreferrer">
-                  github
-                </Link>
-                <Link href="https://www.linkedin.com/in/ivanmaiergallardo/" className="hover:text-white transition-colors" aria-label="View Ivan's LinkedIn profile" target="_blank" rel="noopener noreferrer">
-                  linkedin
-                </Link>
+                {NAVIGATION_ITEMS.map((item) => (
+                  <Link 
+                    key={item.href}
+                    href={item.href} 
+                    className="hover:text-white transition-colors" 
+                    aria-label={item.ariaLabel}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </nav>
             </div>
             <address className="text-sm not-italic self-start mobile:self-auto">
