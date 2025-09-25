@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     siteName: "Ivan Maier Gallardo Portfolio",
     images: [
       {
-        url: "/api/og",
+        url: "/api/og?caption=Frontend%20Engineer%20%7C%20React%20%2B%20TypeScript%20Specialist",
         width: 1200,
         height: 630,
         alt: "Ivan Maier Gallardo - Frontend Engineer Portfolio",
@@ -69,7 +69,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ivan Maier Gallardo - Frontend Engineer | React & TypeScript Specialist",
     description: "Ivan Maier Gallardo is a Frontend Engineer with 4+ years of experience building scalable web applications. Currently at MercadoLibre.",
-    images: ["/api/og"],
+    images: [
+      "/api/og?caption=Frontend%20Engineer%20%7C%20React%20%2B%20TypeScript%20Specialist",
+    ],
     creator: "@ivanmaierg",
   },
   alternates: {

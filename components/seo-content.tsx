@@ -24,7 +24,7 @@ export const SEOContent = () => {
       <h2>Technical Skills</h2>
       <p>
         Ivan Maier Gallardo's technical expertise includes React, TypeScript, JavaScript, Next.js, 
-        Node.js, Redux, and modern web development practices. He is passionate about performance 
+        Node.js, and modern web development practices. He is passionate about performance 
         optimization, developer experience, and creating maintainable codebases.
       </p>
       <h2>Contact Ivan Maier Gallardo</h2>
