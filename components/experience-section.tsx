@@ -37,7 +37,7 @@ export const ExperienceSection = () => {
                 href={exp.companyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors underline text-sm"
+                className="text-foreground hover:text-muted-foreground transition-colors underline text-sm"
               >
                 {exp.company}
               </a>

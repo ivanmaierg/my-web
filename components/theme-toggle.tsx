@@ -8,6 +8,7 @@ export const ThemeToggle = () => {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
   const [isPressed, setIsPressed] = React.useState(false)
+  const [isRotating, setIsRotating] = React.useState(false)
 
   React.useEffect(() => {
     setMounted(true)
@@ -27,12 +28,18 @@ export const ThemeToggle = () => {
 
   const handleToggle = () => {
     setIsPressed(true)
+    setIsRotating(true)
     setTheme(theme === "light" ? "dark" : "light")
     
     // Reset pressed state after animation
     setTimeout(() => {
       setIsPressed(false)
     }, 150)
+    
+    // Reset rotating state after rotation animation
+    setTimeout(() => {
+      setIsRotating(false)
+    }, 300)
   }
 
   return (
@@ -46,7 +53,7 @@ export const ThemeToggle = () => {
       }}
       className={`inline-flex items-center justify-center rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground disabled:pointer-events-none disabled:opacity-50 border border-border bg-background shadow-sm hover:bg-muted-foreground/10 hover:text-foreground h-9 w-9 transition-all duration-150 ease-in-out ${
         isPressed ? "scale-95" : "scale-100"
-      }`}
+      } ${isRotating ? "rotate-180" : ""}`}
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
       tabIndex={0}
     >
