@@ -17,7 +17,6 @@ export async function GET() {
           fontFamily: 'JetBrains Mono, monospace',
         }}
       >
-        {/* Main Content Container */}
         <div
           style={{
             display: 'flex',
@@ -29,7 +28,6 @@ export async function GET() {
             maxWidth: '900px',
           }}
         >
-          {/* Name */}
           <div
             style={{
               fontSize: 64,
@@ -42,7 +40,6 @@ export async function GET() {
             ivan
           </div>
           
-          {/* Title */}
           <div
             style={{
               fontSize: 28,
@@ -54,7 +51,6 @@ export async function GET() {
             Frontend Engineer
           </div>
           
-          {/* Skills - Simple list */}
           <div
             style={{
               fontSize: 20,
@@ -66,7 +62,6 @@ export async function GET() {
             React - TypeScript - JavaScript - Next.js - Node.js - Redux
           </div>
           
-          {/* Location & Company */}
           <div
             style={{
               fontSize: 18,
@@ -86,7 +81,7 @@ export async function GET() {
       width: 1200,
       height: 630,
       headers: {
-        'Cache-Control': 'public, max-age=31536000, immutable', // Cache for 1 year
+        'Cache-Control': 'public, max-age=31536000, immutable',
         'CDN-Cache-Control': 'max-age=31536000',
         'Vercel-CDN-Cache-Control': 'max-age=31536000',
       },
