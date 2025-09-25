@@ -10,7 +10,19 @@ interface ActivitySectionProps {
 
 export const ActivitySection = async ({ username }: ActivitySectionProps) => {
   return (
-    <Section title="Activity">
+    <Section
+      title={
+        <a
+          href={`https://github.com/${username}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 hover:underline"
+        >
+          Activity
+          <ExternalLink aria-hidden="true" className="h-3 w-3" />
+        </a>
+      }
+    >
       <div className="border-b border-border pb-6 mobile:pb-8 space-y-8">
         <GitHubErrorBoundary>
           {await GitHubContributions({ username })}
