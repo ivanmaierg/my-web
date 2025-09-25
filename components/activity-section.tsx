@@ -1,8 +1,8 @@
-import { ExternalLink } from "lucide-react"
 import { GitHubContributions } from "@/components/github-contributions"
 import { GitHubActivity } from "@/components/github-activity"
 import { GitHubErrorBoundary } from "@/components/error-boundary"
 import { Section } from "./section"
+import { ExternalLinkIcon } from "./external-link-icon"
 
 interface ActivitySectionProps {
   username: string
@@ -19,7 +19,7 @@ export const ActivitySection = async ({ username }: ActivitySectionProps) => {
           className="inline-flex items-center gap-1 hover:underline"
         >
           Activity
-          <ExternalLink aria-hidden="true" className="h-3 w-3" />
+          <ExternalLinkIcon className="h-3 w-3" />
         </a>
       }
     >
