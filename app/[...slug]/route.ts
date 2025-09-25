@@ -3,11 +3,11 @@ import { EXTERNAL_LINKS } from '@/lib/constants';
 
 const redirects = {
   'x': EXTERNAL_LINKS.X,
-  'twitter': EXTERNAL_LINKS.X, // Alternative for twitter
+  'twitter': EXTERNAL_LINKS.X,
   'github': EXTERNAL_LINKS.GITHUB,
   'linkedin': EXTERNAL_LINKS.LINKEDIN,
   'email': EXTERNAL_LINKS.EMAIL,
-  'mail': EXTERNAL_LINKS.EMAIL, // Alternative for email
+  'mail': EXTERNAL_LINKS.EMAIL,
 } as const;
 
 export function GET(
@@ -31,4 +31,4 @@ export function GET(
 
 export const runtime = 'edge';
 
-export const revalidate = 2592000; // Revalidate every 1 month (in seconds)
+export const revalidate = 2592000;

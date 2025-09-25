@@ -31,12 +31,10 @@ export const ThemeToggle = () => {
     setIsRotating(true)
     setTheme(theme === "light" ? "dark" : "light")
     
-    // Reset pressed state after animation
     setTimeout(() => {
       setIsPressed(false)
     }, 150)
     
-    // Reset rotating state after rotation animation
     setTimeout(() => {
       setIsRotating(false)
     }, 300)
