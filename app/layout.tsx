@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://ivanmaierg.dev'),
   title: "Ivan Maier Gallardo - Frontend Engineer | React & TypeScript Specialist",
   description: "Ivan Maier Gallardo is a Frontend Engineer with 4+ years of experience building scalable web applications. Currently at MercadoLibre, specializing in React, TypeScript, microfrontends, and developer tooling. Based in Buenos Aires, Argentina.",
+  other: {
+    'Content-Language': 'en',
+  },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -94,6 +97,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth scroll-momentum" suppressHydrationWarning>
       <head>
+        <meta httpEquiv="Content-Language" content="en" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
         
