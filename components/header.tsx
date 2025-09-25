@@ -1,4 +1,6 @@
+import * as React from "react"
 import Link from "next/link"
+import dynamic from "next/dynamic"
 import { NAVIGATION_ITEMS, EXTERNAL_LINKS } from "@/lib/constants"
 import { ThemeToggle } from "@/components/theme-toggle"
 
@@ -50,7 +52,7 @@ export const Header = () => {
             <span className="hidden mobile:inline">Buenos Aires, Argentina</span>
             <span className="mobile:hidden">Argentina</span>
           </address>
-          <ThemeToggle />
+            <ThemeToggle />
         </div>
       </div>
     </header>
