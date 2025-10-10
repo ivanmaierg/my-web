@@ -32,7 +32,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange={true}
+          disableTransitionOnChange={false}
         >
           <AIInstructions />
           {children}

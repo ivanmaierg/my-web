@@ -3,6 +3,7 @@
 import * as React from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
+import { startViewTransition } from "@/lib/view-transition"
 
 export const ThemeToggle = () => {
   const { theme, resolvedTheme, setTheme } = useTheme()
@@ -13,7 +14,11 @@ export const ThemeToggle = () => {
     setIsPressed(true)
     setIsRotating(true)
     const currentTheme = resolvedTheme ?? theme
-    setTheme(currentTheme === "light" ? "dark" : "light")
+    
+    // Use View Transition API for smooth theme transitions
+    startViewTransition(() => {
+      setTheme(currentTheme === "light" ? "dark" : "light")
+    })
     
     setTimeout(() => {
       setIsPressed(false)
@@ -35,6 +40,7 @@ export const ThemeToggle = () => {
           handleToggle()
         }
       }}
+      data-theme-toggle
       className={`inline-flex items-center justify-center rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground disabled:pointer-events-none disabled:opacity-50 border border-border bg-background shadow-sm hover:bg-muted-foreground/10 hover:text-foreground h-9 w-9 transition-all duration-150 ease-in-out ${
         isPressed ? "scale-95" : "scale-100"
       } ${isRotating ? "rotate-180" : ""} fixed right-4 top-4 mobile:static mobile:right-auto mobile:top-auto`}

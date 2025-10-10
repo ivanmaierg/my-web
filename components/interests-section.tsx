@@ -2,7 +2,7 @@ import { Section } from "./section"
 
 export const InterestsSection = () => {
   return (
-    <Section title="Interests">
+    <Section title="interests">
       <div className="text-sm text-foreground">
         <p>Microfrontends - Performance optimization - Developer tooling - System architecture</p>
       </div>

@@ -173,3 +173,101 @@
   }
 
 }
+
+/* View Transition API Styles */
+@layer base {
+  /* Enable view transitions for the entire page */
+  html {
+    view-transition-name: root;
+  }
+
+  /* Smooth theme transition animations */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Theme toggle specific transition */
+  ::view-transition-old(root) {
+    animation-name: theme-fade-out;
+  }
+
+  ::view-transition-new(root) {
+    animation-name: theme-fade-in;
+  }
+
+  /* Theme transition keyframes */
+  @keyframes theme-fade-out {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0.8;
+      transform: scale(0.98);
+    }
+  }
+
+  @keyframes theme-fade-in {
+    from {
+      opacity: 0.8;
+      transform: scale(1.02);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Enhanced theme toggle button transition */
+  [data-theme-toggle] {
+    view-transition-name: theme-toggle;
+  }
+
+  ::view-transition-old(theme-toggle),
+  ::view-transition-new(theme-toggle) {
+    animation-duration: 0.4s;
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  ::view-transition-old(theme-toggle) {
+    animation-name: toggle-rotate-out;
+  }
+
+  ::view-transition-new(theme-toggle) {
+    animation-name: toggle-rotate-in;
+  }
+
+  @keyframes toggle-rotate-out {
+    from {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+    to {
+      opacity: 0.7;
+      transform: rotate(90deg) scale(0.9);
+    }
+  }
+
+  @keyframes toggle-rotate-in {
+    from {
+      opacity: 0.7;
+      transform: rotate(-90deg) scale(1.1);
+    }
+    to {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+  }
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root),
+    ::view-transition-old(theme-toggle),
+    ::view-transition-new(theme-toggle) {
+      animation-duration: 0.1s;
+    }
+  }
+}
