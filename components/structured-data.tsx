@@ -27,7 +27,6 @@ export const StructuredData = () => {
       "JavaScript",
       "Next.js",
       "Node.js",
-      "Redux",
       "Microfrontends",
       "Performance optimization",
       "Developer tooling",

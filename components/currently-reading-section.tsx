@@ -36,7 +36,7 @@ BookItem.displayName = "BookItem"
 export const CurrentlyReadingSection = memo(({ books = CURRENTLY_READING_BOOKS }: CurrentlyReadingProps) => {
   if (!books || books.length === 0) {
     return (
-      <Section title="Currently Reading">
+      <Section title="currently reading">
         <div className="text-sm text-muted-foreground border-b border-border pb-6 mobile:pb-8">
           <p>No books currently being read.</p>
         </div>
@@ -45,7 +45,7 @@ export const CurrentlyReadingSection = memo(({ books = CURRENTLY_READING_BOOKS }
   }
 
   return (
-    <Section title="Currently Reading">
+    <Section title="currently reading">
       <div className="text-sm text-foreground leading-relaxed border-b border-border pb-6 mobile:pb-8">
         <ul className="space-y-4" role="list">
           {books.map((book) => (

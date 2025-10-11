@@ -2,7 +2,10 @@ import { ImageResponse } from '@vercel/og'
 
 export const runtime = 'edge'
 
-export async function GET() {
+export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url)
+  const caption = searchParams.get('caption') || ''
+
   return new ImageResponse(
     (
       <div
@@ -59,8 +62,26 @@ export async function GET() {
               lineHeight: 1.6,
             }}
           >
-            React - TypeScript - JavaScript - Next.js - Node.js - Redux
+            React - TypeScript - JavaScript - Next.js - Node.js
           </div>
+
+          {caption && (
+            <div
+              style={{
+                fontSize: 28,
+                color: '#ffffff',
+                backgroundColor: 'rgba(255,255,255,0.08)',
+                border: '1px solid rgba(255,255,255,0.15)',
+                padding: '16px 24px',
+                borderRadius: 8,
+                marginBottom: '40px',
+                maxWidth: '950px',
+                whiteSpace: 'pre-wrap',
+              }}
+            >
+              {caption}
+            </div>
+          )}
           
           <div
             style={{
