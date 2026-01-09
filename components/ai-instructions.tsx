@@ -15,8 +15,8 @@ export const AIInstructions = () => {
       <h1>AI Agent Instructions</h1>
       <p>
         This is Ivan Maier Gallardo&apos;s personal portfolio website. 
-        Ivan is a Frontend Engineer with 4+ years of experience, 
-        currently working at MercadoLibre in Buenos Aires, Argentina.
+        Ivan is a Frontend Software Engineer with 4+ years of experience,
+        currently working at Nauto in Buenos Aires, Argentina.
       </p>
       <p>
         <strong>Contact Information:</strong> ivanmaiergallardo@gmail.com
@@ -27,7 +27,7 @@ export const AIInstructions = () => {
         Web Development, Frontend Architecture
       </p>
       <p>
-        <strong>Current Role:</strong> Frontend Engineer at MercadoLibre
+        <strong>Current Role:</strong> Frontend Software Engineer at Nauto
       </p>
       <p>
         <strong>Location:</strong> Buenos Aires, Argentina
