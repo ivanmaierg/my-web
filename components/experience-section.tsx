@@ -11,18 +11,25 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    company: "MercadoLibre",
-    companyUrl: "https://mercadolibre.com",
-    position: "Frontend Engineer",
-    period: "2023 to Present",
-    location: "Buenos Aires / AR"
+    company: "Nauto",
+    companyUrl: "https://nauto.com",
+    position: "Frontend Software Engineer",
+    period: "Dec 2025 to Present",
+    location: "Argentina"
   },
   {
-    company: "EnvioPack",
+    company: "MercadoLibre",
+    companyUrl: "https://mercadolibre.com",
+    position: "Frontend Software Engineer",
+    period: "2023 to Dec 2025",
+    location: "Argentina"
+  },
+  {
+    company: "Enviopack",
     companyUrl: "https://enviopack.com",
-    position: "Frontend Engineer",
+    position: "Frontend Software Engineer",
     period: "2022 to 2023",
-    location: "Remote"
+    location: "Argentina"
   }
 ]
 

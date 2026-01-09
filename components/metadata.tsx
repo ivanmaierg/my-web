@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   metadataBase: new URL('https://ivanmaierg.dev'),
   title: "Ivan Maier Gallardo - Frontend Engineer | React & TypeScript Specialist",
-  description: "Ivan Maier Gallardo is a Frontend Engineer with 4+ years of experience building scalable web applications. Currently at MercadoLibre, specializing in React, TypeScript, microfrontends, and developer tooling. Based in Buenos Aires, Argentina.",
+  description: "Ivan Maier Gallardo is a Product-focused Software Engineer with 4+ years of experience building scalable web applications. Currently at Nauto, building product-focused web apps for AI and real-time systems. Based in Buenos Aires, Argentina.",
   other: {
     'Content-Language': 'en',
   },
@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     "JavaScript",
     "Next.js",
     "Microfrontends",
+    "Nauto",
     "MercadoLibre",
     "Buenos Aires",
     "Argentina",
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://ivanmaierg.dev",
     title: "Ivan Maier Gallardo - Frontend Engineer | React & TypeScript Specialist",
-    description: "Ivan Maier Gallardo is a Frontend Engineer with 4+ years of experience building scalable web applications. Currently at MercadoLibre, specializing in React, TypeScript, and microfrontends.",
+    description: "Ivan Maier Gallardo is a Product-focused Software Engineer with 4+ years of experience. Currently at Nauto, building web apps for AI and real-time systems.",
     siteName: "Ivan Maier Gallardo Portfolio",
     images: [
       {
@@ -68,7 +69,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Ivan Maier Gallardo - Frontend Engineer | React & TypeScript Specialist",
-    description: "Ivan Maier Gallardo is a Frontend Engineer with 4+ years of experience building scalable web applications. Currently at MercadoLibre.",
+    description: "Ivan Maier Gallardo is a Product-focused Software Engineer with 4+ years of experience. Currently at Nauto, building web apps for AI and real-time systems.",
     images: [
       "/api/og?caption=Frontend%20Engineer%20%7C%20React%20%2B%20TypeScript%20Specialist",
     ],
