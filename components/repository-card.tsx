@@ -1,16 +1,5 @@
 import { Star, GitFork } from "lucide-react"
-
-interface GitHubRepo {
-  name: string
-  full_name: string
-  description: string
-  html_url: string
-  stargazers_count: number
-  forks_count: number
-  watchers_count: number
-  language: string
-  updated_at: string
-}
+import { GitHubRepo } from '@/lib/types'
 
 interface RepositoryCardProps {
   repo: GitHubRepo

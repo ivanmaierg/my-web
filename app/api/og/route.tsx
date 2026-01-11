@@ -93,7 +93,7 @@ export async function GET(req: Request) {
             }}
           >
             <span>Buenos Aires, Argentina</span>
-            <span>MercadoLibre</span>
+            <span>Nauto</span>
           </div>
         </div>
       </div>

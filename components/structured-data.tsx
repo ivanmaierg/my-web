@@ -7,7 +7,7 @@ export const StructuredData = () => {
     "name": "Ivan Maier Gallardo",
     "alternateName": ["Ivan Maier", "Ivan Gallardo"],
     "jobTitle": "Frontend Engineer",
-    "description": "Ivan Maier Gallardo is a Frontend Engineer with near 4 years of experience building scalable, high-performance web applications. Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Currently at MercadoLibre architecting microfrontend platforms and improving developer experience.",
+    "description": "Ivan Maier Gallardo is a Product-focused Software Engineer with 4+ years of experience building high-performance, scalable web products. Currently at Nauto working on web applications for AI and real-time systems.",
     "url": "https://ivanmaierg.dev",
     "image": "https://ivanmaierg.dev/api/og",
     "sameAs": STRUCTURED_DATA_LINKS,
@@ -18,24 +18,24 @@ export const StructuredData = () => {
     },
     "worksFor": {
       "@type": "Organization",
-      "name": "MercadoLibre",
-      "url": "https://mercadolibre.com"
+      "name": "Nauto",
+      "url": "https://nauto.com"
     },
     "knowsAbout": [
       "React",
       "TypeScript",
-      "JavaScript",
       "Next.js",
       "Node.js",
+      "Express",
+      "AWS",
+      "PostgreSQL",
       "Microfrontends",
-      "Performance optimization",
-      "Developer tooling",
-      "System architecture"
+      "Observability tooling"
     ],
     "hasOccupation": {
       "@type": "Occupation",
-      "name": "Frontend Engineer",
-      "description": "Building scalable, high-performance web applications. Specialized in complex frontend systems like CRMs, WMS, dashboards, and low-code tools. Architecting microfrontend platforms and improving developer experience."
+      "name": "Frontend Software Engineer",
+      "description": "Building product-focused web applications for AI and real-time systems. Specialized in high-performance, scalable web products where user experience, iteration speed, and developer experience matter."
     }
   }
 

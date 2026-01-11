@@ -1,36 +1,16 @@
-import { ContributionDay } from './github-api'
+import { ContributionDay, ContributionWeek, GitHubContributionsResponse } from './github-api'
 
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-export const processContributions = (contributions: ContributionDay[]) => {
-  const totalContributions = contributions.reduce((sum, day) => sum + day.count, 0)
+export const processContributions = (response: GitHubContributionsResponse) => {
+  const { weeks: rawWeeks, totalContributions } = response
 
-  const weeks: (ContributionDay | null)[][] = []
-  let currentWeek: (ContributionDay | null)[] = []
+  // Convert to the format expected by ContributionGrid
+  const weeks: (ContributionDay | null)[][] = rawWeeks.map((week: ContributionWeek) =>
+    week.contributionDays
+  )
 
-  contributions.forEach((day, index) => {
-    const date = new Date(day.date)
-    const dayOfWeek = date.getDay()
-
-    if (index === 0) {
-      for (let i = 0; i < dayOfWeek; i++) {
-        currentWeek.push(null)
-      }
-    }
-
-    currentWeek.push(day)
-
-    if (currentWeek.length === 7) {
-      weeks.push([...currentWeek])
-      currentWeek = []
-    } else if (index === contributions.length - 1) {
-      while (currentWeek.length < 7) {
-        currentWeek.push(null)
-      }
-      weeks.push([...currentWeek])
-    }
-  })
-
+  // Generate month labels based on the first of each month
   const monthLabels: string[] = weeks.map((week) => {
     const firstOfMonth = week.find((d) => d && new Date(d.date).getDate() === 1)
     if (!firstOfMonth) return ""
