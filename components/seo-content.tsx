@@ -1,37 +1,28 @@
 export const SEOContent = () => {
   return (
     <div className="sr-only" aria-hidden="true">
-      <h1>Ivan Maier Gallardo - Frontend Engineer Portfolio</h1>
+      <h1>Ivan Maier Gallardo - Software Engineer Portfolio</h1>
       <p>
-        Welcome to the personal portfolio of Ivan Maier Gallardo, a Product-focused Software Engineer
-        with 4+ years of experience in building scalable web applications. Ivan Maier Gallardo
-        specializes in React, TypeScript, and modern web technologies, currently working at
-        Nauto in Buenos Aires, Argentina.
-      </p>
-      <h2>About Ivan Maier Gallardo</h2>
-      <p>
-        Ivan Maier Gallardo is a Product-focused Software Engineer who has dedicated his career to
-        creating exceptional user experiences through innovative web technologies. With expertise
-        in React, TypeScript, Next.js, and Node.js, Ivan Maier Gallardo has contributed to
-        numerous high-impact projects at Nauto and previously at MercadoLibre.
+        Full-stack Software Engineer (frontend lean) with 4+ years of experience building
+        systems that scale. Currently at Nauto building web apps for AI and real-time systems.
       </p>
       <h2>Professional Experience</h2>
       <p>
-        Ivan Maier Gallardo currently serves as a Frontend Software Engineer at Nauto, where he
-        works on web applications that support fleet safety, operations, and real-time video-based
-        analytics at scale. Previously at MercadoLibre, he helped roll out a CRM used by 25k+ users.
+        Software Engineer at Nauto working on web applications for fleet safety and real-time
+        video analytics. Previously at MercadoLibre, scaled a CRM to 25k+ users across 100+
+        microfrontends. At Envíopack, redesigned workflows that boosted efficiency by 30%.
       </p>
       <h2>Technical Skills</h2>
       <p>
-        Ivan Maier Gallardo&apos;s technical expertise includes React, TypeScript, Next.js,
-        Node.js, Express, AWS, PostgreSQL, and modern web development practices. He is passionate about
-        AI systems, real-time applications, and creating maintainable codebases.
+        React, TypeScript, Node.js, React Native, Next.js, Go, Python, PostgreSQL, AWS.
       </p>
-      <h2>Contact Ivan Maier Gallardo</h2>
+      <h2>Looking For</h2>
       <p>
-        For professional inquiries, collaborations, or opportunities, you can reach Ivan Maier 
-        Gallardo at ivanmaiergallardo@gmail.com. Based in Buenos Aires, Argentina, Ivan Maier 
-        Gallardo is open to discussing frontend engineering opportunities and technical consulting.
+        Opportunities in B2B, power-user tools, or operations-focused products.
+      </p>
+      <h2>Contact</h2>
+      <p>
+        ivanmaiergallardo@gmail.com - Buenos Aires, Argentina.
       </p>
     </div>
   )

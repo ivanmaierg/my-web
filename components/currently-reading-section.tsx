@@ -45,7 +45,7 @@ export const CurrentlyReadingSection = memo(({ books = CURRENTLY_READING_BOOKS }
   }
 
   return (
-    <Section title="currently reading">
+    <Section title="Currently Reading">
       <div className="text-sm text-foreground leading-relaxed border-b border-border pb-6 mobile:pb-8">
         <ul className="space-y-4" role="list">
           {books.map((book) => (

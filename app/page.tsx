@@ -21,14 +21,14 @@ export default function Portfolio() {
 
         <main id="main-content" className="max-w-4xl mx-auto p-4 mobile:p-6 space-y-8 mobile:space-y-12 scroll-smooth scroll-padding-top mt-8 mb-8">
           <AboutSection />
-          <CurrentlyReadingSection />
+          <ExperienceSection />
+          <SkillsSection />
           <Suspense fallback={<ActivitySkeleton />}>
             {/* @ts-expect-error Async Server Component - TypeScript limitation with RSC */}
             <ActivitySection username="ivanmaierg" />
           </Suspense>
-          <ExperienceSection />
-          <SkillsSection />
           <InterestsSection />
+          <CurrentlyReadingSection />
         </main>
       </div>
     </>
