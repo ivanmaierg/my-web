@@ -4,7 +4,7 @@ export const runtime = 'edge'
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url)
-  const caption = searchParams.get('caption') || ''
+  const caption = searchParams.get('caption') ?? ''
 
   return new ImageResponse(
     (

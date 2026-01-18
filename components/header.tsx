@@ -1,7 +1,5 @@
-import * as React from "react"
 import Link from "next/link"
-import dynamic from "next/dynamic"
-import { NAVIGATION_ITEMS, EXTERNAL_LINKS } from "@/lib/constants"
+import { EXTERNAL_LINKS, NAVIGATION_ITEMS } from "@/lib/constants"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export const Header = () => {

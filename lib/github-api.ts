@@ -21,6 +21,16 @@ const CONTRIBUTION_LEVEL_MAP: Record<string, number> = {
   'FOURTH_QUARTILE': 4
 }
 
+interface GitHubContributionDayRaw {
+  date: string
+  contributionCount: number
+  contributionLevel: string
+}
+
+interface GitHubContributionWeekRaw {
+  contributionDays: GitHubContributionDayRaw[]
+}
+
 const GRAPHQL_QUERY = `
   query($username: String!, $from: DateTime!, $to: DateTime!) {
     user(login: $username) {
@@ -86,8 +96,8 @@ export const fetchGitHubContributions = async (username: string): Promise<GitHub
       throw new Error('No contribution data found')
     }
 
-    const weeks: ContributionWeek[] = calendar.weeks.map((week: any) => ({
-      contributionDays: week.contributionDays.map((day: any) => ({
+    const weeks: ContributionWeek[] = calendar.weeks.map((week: GitHubContributionWeekRaw) => ({
+      contributionDays: week.contributionDays.map((day: GitHubContributionDayRaw) => ({
         date: day.date,
         count: day.contributionCount,
         level: CONTRIBUTION_LEVEL_MAP[day.contributionLevel] ?? 0
@@ -115,7 +125,7 @@ const generateMockContributions = (): GitHubContributionsResponse => {
   startDate.setDate(startDate.getDate() - dayOfWeek)
 
   let totalContributions = 0
-  let currentDate = new Date(startDate)
+  const currentDate = new Date(startDate)
 
   for (let week = 0; week < 53; week++) {
     const contributionDays: ContributionDay[] = []
