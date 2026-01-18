@@ -2,8 +2,8 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ivanmaierg.dev'),
-  title: "Ivan Maier Gallardo - Frontend Engineer | React & TypeScript Specialist",
-  description: "Ivan Maier Gallardo is a Product-focused Software Engineer with 4+ years of experience building scalable web applications. Currently at Nauto, building product-focused web apps for AI and real-time systems. Based in Buenos Aires, Argentina.",
+  title: "Ivan Maier Gallardo - Software Engineer | React & TypeScript",
+  description: "Full-stack Software Engineer (frontend lean) with 4+ years of experience. Building systems that scale. Currently at Nauto working on web apps for AI and real-time systems.",
   other: {
     'Content-Language': 'en',
   },
@@ -54,24 +54,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://ivanmaierg.dev",
-    title: "Ivan Maier Gallardo - Frontend Engineer | React & TypeScript Specialist",
-    description: "Ivan Maier Gallardo is a Product-focused Software Engineer with 4+ years of experience. Currently at Nauto, building web apps for AI and real-time systems.",
+    title: "Ivan Maier Gallardo - Software Engineer | React & TypeScript",
+    description: "Full-stack Software Engineer (frontend lean) with 4+ years of experience. Building systems that scale. Currently at Nauto.",
     siteName: "Ivan Maier Gallardo Portfolio",
     images: [
       {
-        url: "/api/og?caption=Frontend%20Engineer%20%7C%20React%20%2B%20TypeScript%20Specialist",
+        url: "/api/og?caption=Software%20Engineer%20%7C%20React%20%2B%20TypeScript",
         width: 1200,
         height: 630,
-        alt: "Ivan Maier Gallardo - Frontend Engineer Portfolio",
+        alt: "Ivan Maier Gallardo - Software Engineer Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ivan Maier Gallardo - Frontend Engineer | React & TypeScript Specialist",
-    description: "Ivan Maier Gallardo is a Product-focused Software Engineer with 4+ years of experience. Currently at Nauto, building web apps for AI and real-time systems.",
+    title: "Ivan Maier Gallardo - Software Engineer | React & TypeScript",
+    description: "Full-stack Software Engineer (frontend lean) with 4+ years of experience. Building systems that scale. Currently at Nauto.",
     images: [
-      "/api/og?caption=Frontend%20Engineer%20%7C%20React%20%2B%20TypeScript%20Specialist",
+      "/api/og?caption=Software%20Engineer%20%7C%20React%20%2B%20TypeScript",
     ],
     creator: "@ivanmaierg",
   },

@@ -4,7 +4,7 @@ export const InterestsSection = () => {
   return (
     <Section title="Interests">
       <div className="text-sm text-foreground">
-        <p>AI systems - Real-time applications - Microfrontends - Observability tooling</p>
+        <p>B2B products - Power-user tools - Real-time systems - Developer experience</p>
       </div>
     </Section>
   )

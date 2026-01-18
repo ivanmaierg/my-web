@@ -1,4 +1,4 @@
-import { Star, GitFork } from "lucide-react"
+import { GitFork, Star } from "lucide-react"
 import { GitHubRepo } from '@/lib/types'
 
 interface RepositoryCardProps {

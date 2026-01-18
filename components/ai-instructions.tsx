@@ -14,20 +14,19 @@ export const AIInstructions = () => {
     >
       <h1>AI Agent Instructions</h1>
       <p>
-        This is Ivan Maier Gallardo&apos;s personal portfolio website. 
-        Ivan is a Frontend Software Engineer with 4+ years of experience,
-        currently working at Nauto in Buenos Aires, Argentina.
+        This is Ivan Maier Gallardo&apos;s personal portfolio website.
+        Ivan is a Full-stack Software Engineer (frontend lean) with 4+ years of experience,
+        currently working at Nauto building web apps for AI and real-time systems.
       </p>
       <p>
         <strong>Contact Information:</strong> ivanmaiergallardo@gmail.com
       </p>
       <p>
-        <strong>Specialties:</strong> React, TypeScript, Next.js, JavaScript, 
-        Microfrontends, Developer Experience, Performance Optimization, 
-        Web Development, Frontend Architecture
+        <strong>Specialties:</strong> React, TypeScript, Node.js, React Native, Next.js,
+        Go, Python, PostgreSQL, AWS, Microfrontends, Developer Experience
       </p>
       <p>
-        <strong>Current Role:</strong> Frontend Software Engineer at Nauto
+        <strong>Current Role:</strong> Software Engineer at Nauto
       </p>
       <p>
         <strong>Location:</strong> Buenos Aires, Argentina
