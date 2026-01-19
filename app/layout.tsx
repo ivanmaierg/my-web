@@ -1,5 +1,6 @@
 import { JetBrains_Mono } from "next/font/google"
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { ThemeProvider } from "@/components/theme-provider"
 import { LayoutHead } from "@/components/layout-head"
 import { AIInstructions } from "@/components/ai-instructions"
@@ -43,6 +44,7 @@ export default function RootLayout({
           <AIInstructions />
           {children}
           <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
