@@ -50,6 +50,12 @@ const GRAPHQL_QUERY = `
   }
 `
 
+/**
+ * Fetch a user's last-52-weeks contribution calendar from the GitHub GraphQL API.
+ * Falls back to deterministic-but-randomized mock data when GITHUB_TOKEN is missing
+ * or the request fails, so the contribution grid still renders during local dev.
+ * Server-only — calls revalidate every 30 minutes via Next.js fetch cache.
+ */
 export const fetchGitHubContributions = async (username: string): Promise<GitHubContributionsResponse> => {
   const token = process.env.GITHUB_TOKEN
 

@@ -1,17 +1,12 @@
+# robots.txt for ivanmaierg.dev
+# Personal portfolio site. Open to indexing and AI agent discovery.
+
 User-agent: *
 Allow: /
 
-# Sitemap
 Sitemap: https://ivanmaierg.dev/sitemap.xml
 
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-
-# Disallow admin or private areas (if any)
-# Disallow: /admin/
-# Disallow: /private/
-
-# Allow all search engines to index the site
+# --- Search crawlers (explicit allow) ---
 User-agent: Googlebot
 Allow: /
 
@@ -21,8 +16,54 @@ Allow: /
 User-agent: Slurp
 Allow: /
 
-# Additional SEO directives
-User-agent: *
-Allow: /api/og
-Allow: /favicon.ico
-Allow: /favicon.svg
+User-agent: DuckDuckBot
+Allow: /
+
+# --- AI / LLM agents (explicit allow — site owner welcomes agent discovery) ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: cohere-ai
+Allow: /

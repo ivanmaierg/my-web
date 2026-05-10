@@ -1,0 +1,33 @@
+# Ivan Maier Gallardo
+
+> Software engineer, frontend-leaning full-stack. 4+ years building B2B platforms.
+> Currently at Nauto (Series C, AI fleet safety) shipping the customer-facing platform
+> used across 500k+ drivers. Previously Mercado Libre and Envíopack.
+
+Personal portfolio site for Ivan Maier Gallardo (a.k.a. Ivan Maier, Ivan Gallardo).
+Buenos Aires, Argentina. Open to remote roles in US time zones.
+
+## Primary
+
+- [Portfolio (HTML)](https://ivanmaierg.dev/): full portfolio with experience, skills, and projects.
+- [Portfolio (Markdown)](https://ivanmaierg.dev/page.md): markdown mirror of the portfolio for agents.
+- [Sitemap](https://ivanmaierg.dev/sitemap.xml): canonical URL list.
+
+## Profile
+
+- Role: Software Engineer at Nauto (Series C, AI fleet safety).
+- Prior: Mercado Libre (CX IT, microfrontends + GraphQL BFF), Envíopack (B2B WMS).
+- Stack: TypeScript, React, Next.js, Tailwind, shadcn, React Query, Node.js, PostgreSQL.
+- Focus: customer-facing platforms, developer experience, microfrontends, performance.
+- Looking for: US AI-native startup (Series A–C) building agentic tools for power users or developers.
+
+## Contact
+
+- Email: ivanmaiergallardo@gmail.com
+- GitHub: https://github.com/ivanmaierg
+- Location: Buenos Aires, Argentina (full overlap with US time zones).
+
+## Notes for agents
+
+This site is a single-page personal portfolio. The most recent role and stack details
+in the markdown mirror are the source of truth — prefer those over cached snapshots.

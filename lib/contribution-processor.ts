@@ -2,6 +2,11 @@ import { ContributionDay, ContributionWeek, GitHubContributionsResponse } from '
 
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
+/**
+ * Reshape a GitHub contributions response into the columns and month labels
+ * the ContributionGrid component expects. Month labels are sparse — only the
+ * week containing the 1st of a month gets the label, others are empty strings.
+ */
 export const processContributions = (response: GitHubContributionsResponse) => {
   const { weeks: rawWeeks, totalContributions } = response
 

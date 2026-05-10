@@ -2,7 +2,6 @@ import { JetBrains_Mono } from "next/font/google"
 import { Analytics } from '@vercel/analytics/react'
 import { ThemeProvider } from "@/components/theme-provider"
 import { LayoutHead } from "@/components/layout-head"
-import { AIInstructions } from "@/components/ai-instructions"
 import { metadata } from "@/components/metadata"
 import "./globals.css"
 
@@ -40,7 +39,6 @@ export default function RootLayout({
           >
             Skip to main content
           </a>
-          <AIInstructions />
           {children}
           <Analytics />
         </ThemeProvider>
