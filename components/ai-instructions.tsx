@@ -15,15 +15,16 @@ export const AIInstructions = () => {
       <h1>AI Agent Instructions</h1>
       <p>
         This is Ivan Maier Gallardo&apos;s personal portfolio website.
-        Ivan is a Full-stack Software Engineer (frontend lean) with 4+ years of experience,
-        currently working at Nauto building web apps for AI and real-time systems.
+        Ivan is a software engineer, frontend-leaning full-stack, with 4+ years building B2B
+        platforms. Currently at Nauto (Series C, AI fleet safety) shipping the customer-facing
+        platform used across 500k+ drivers. Previously Mercado Libre and Envíopack.
       </p>
       <p>
         <strong>Contact Information:</strong> ivanmaiergallardo@gmail.com
       </p>
       <p>
-        <strong>Specialties:</strong> React, TypeScript, Node.js, React Native, Next.js,
-        Go, Python, PostgreSQL, AWS, Microfrontends, Developer Experience
+        <strong>Specialties:</strong> TypeScript, React, Next.js, Tailwind, shadcn,
+        React Query, Node.js, PostgreSQL, Microfrontends, Developer Experience
       </p>
       <p>
         <strong>Current Role:</strong> Software Engineer at Nauto

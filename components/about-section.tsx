@@ -5,13 +5,20 @@ export const AboutSection = () => {
     <Section title="About">
       <div className="text-sm text-foreground leading-relaxed border-b border-border pb-6 mobile:pb-8 space-y-4">
         <p>
-          Full-stack Software Engineer (frontend lean) with more than 4 years of experience.
-          I build systems that scale and care about developer experience as much as user experience.
-          At MercadoLibre, I helped scale a CRM to 25k+ users. At Envíopack, I redesigned workflows
-          that boosted warehouse efficiency by 30%.
+          Software engineer, frontend-leaning full-stack. 4+ years building B2B platforms used by
+          tens of thousands of operators across logistics, CRM, CX, and fleet safety.
+        </p>
+        <p>
+          Currently at Nauto (Series C, AI fleet safety), shipping the customer-facing platform used
+          by fleet, safety, and operations teams across 500k+ drivers. Before Nauto, 3 years at
+          Mercado Libre&apos;s CX IT org helping build a next-gen CRM now used by 25k+ agents handling
+          5M+ monthly customer interactions. Earlier at Envíopack, I shipped a B2B WMS, redesigned
+          core warehouse workflows (30% faster operator task time), and took test coverage from 0 to 90%.
         </p>
         <p className="text-muted-foreground">
-          Looking for opportunities in B2B, power-user tools, or operations-focused products.
+          Looking for a US AI-native startup (Series A–C) building agentic tools for power users
+          or developers. Based in Buenos Aires, full overlap with US time zones, open to remote
+          or relocation.
         </p>
       </div>
     </Section>

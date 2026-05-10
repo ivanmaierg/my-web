@@ -51,9 +51,9 @@ export async function GET(req: Request) {
               fontWeight: '400',
             }}
           >
-            Frontend Engineer
+            Software Engineer
           </div>
-          
+
           <div
             style={{
               fontSize: 20,
@@ -62,7 +62,7 @@ export async function GET(req: Request) {
               lineHeight: 1.6,
             }}
           >
-            React - TypeScript - JavaScript - Next.js - Node.js
+            TypeScript - React - Next.js - Node.js
           </div>
 
           {caption && (

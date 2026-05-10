@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   metadataBase: new URL('https://ivanmaierg.dev'),
   title: "Ivan Maier Gallardo - Software Engineer | React & TypeScript",
-  description: "Full-stack Software Engineer (frontend lean) with 4+ years of experience. Building systems that scale. Currently at Nauto working on web apps for AI and real-time systems.",
+  description: "Software engineer, frontend-leaning full-stack. 4+ years building B2B platforms. Currently at Nauto (Series C, AI fleet safety) shipping the customer platform used across 500k+ drivers. Previously Mercado Libre.",
   other: {
     'Content-Language': 'en',
   },
@@ -25,8 +25,12 @@ export const metadata: Metadata = {
     "JavaScript",
     "Next.js",
     "Microfrontends",
+    "Tailwind",
+    "React Query",
     "Nauto",
-    "MercadoLibre",
+    "Mercado Libre",
+    "Fleet Safety",
+    "AI Startup",
     "Buenos Aires",
     "Argentina",
     "Software Engineer",
@@ -55,11 +59,11 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://ivanmaierg.dev",
     title: "Ivan Maier Gallardo - Software Engineer | React & TypeScript",
-    description: "Full-stack Software Engineer (frontend lean) with 4+ years of experience. Building systems that scale. Currently at Nauto.",
+    description: "Software engineer, frontend-leaning full-stack. 4+ years building B2B platforms. Currently at Nauto (AI fleet safety, 500k+ drivers). Previously Mercado Libre.",
     siteName: "Ivan Maier Gallardo Portfolio",
     images: [
       {
-        url: "/api/og?caption=Software%20Engineer%20%7C%20React%20%2B%20TypeScript",
+        url: "/api/og?caption=Shipping%20fleet%20safety%20at%20Nauto%20%C2%B7%20500k%2B%20drivers&v=2",
         width: 1200,
         height: 630,
         alt: "Ivan Maier Gallardo - Software Engineer Portfolio",
@@ -69,9 +73,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Ivan Maier Gallardo - Software Engineer | React & TypeScript",
-    description: "Full-stack Software Engineer (frontend lean) with 4+ years of experience. Building systems that scale. Currently at Nauto.",
+    description: "Software engineer, frontend-leaning full-stack. 4+ years building B2B platforms. Currently at Nauto (AI fleet safety, 500k+ drivers). Previously Mercado Libre.",
     images: [
-      "/api/og?caption=Software%20Engineer%20%7C%20React%20%2B%20TypeScript",
+      "/api/og?caption=Shipping%20fleet%20safety%20at%20Nauto%20%C2%B7%20500k%2B%20drivers&v=2",
     ],
     creator: "@ivanmaierg",
   },

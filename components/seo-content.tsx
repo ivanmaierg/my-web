@@ -3,22 +3,28 @@ export const SEOContent = () => {
     <div className="sr-only" aria-hidden="true">
       <h1>Ivan Maier Gallardo - Software Engineer Portfolio</h1>
       <p>
-        Full-stack Software Engineer (frontend lean) with 4+ years of experience building
-        systems that scale. Currently at Nauto building web apps for AI and real-time systems.
+        Software engineer, frontend-leaning full-stack. 4+ years building B2B platforms used by
+        tens of thousands of operators across logistics, CRM, CX, and fleet safety. Currently at
+        Nauto (Series C, AI fleet safety) shipping the customer-facing platform used across 500k+
+        drivers.
       </p>
       <h2>Professional Experience</h2>
       <p>
-        Software Engineer at Nauto working on web applications for fleet safety and real-time
-        video analytics. Previously at MercadoLibre, scaled a CRM to 25k+ users across 100+
-        microfrontends. At Envíopack, redesigned workflows that boosted efficiency by 30%.
+        Software Engineer at Nauto, building the home dashboard, enterprise SSO integrations, and
+        a Claude Skills library used by the team. Previously 3 years at Mercado Libre&apos;s CX IT
+        org helping build a next-gen CRM now used by 25k+ agents handling 5M+ monthly customer
+        interactions, with a Node.js/GraphQL BFF and React Query data layer powering 100+
+        microfrontends. Earlier at Envíopack, shipped a B2B WMS, redesigned core warehouse
+        workflows (30% faster operator task time) and took test coverage from 0 to 90%.
       </p>
       <h2>Technical Skills</h2>
       <p>
-        React, TypeScript, Node.js, React Native, Next.js, Go, Python, PostgreSQL, AWS.
+        TypeScript, React, Next.js, Tailwind, shadcn, React Query, Node.js, PostgreSQL.
       </p>
       <h2>Looking For</h2>
       <p>
-        Opportunities in B2B, power-user tools, or operations-focused products.
+        A US AI-native startup (Series A–C) building agentic tools for power users or developers.
+        Buenos Aires, full overlap with US time zones, open to remote or relocation.
       </p>
       <h2>Contact</h2>
       <p>

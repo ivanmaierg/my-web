@@ -6,8 +6,8 @@ export const StructuredData = () => {
     "@type": "Person",
     "name": "Ivan Maier Gallardo",
     "alternateName": ["Ivan Maier", "Ivan Gallardo"],
-    "jobTitle": "Frontend Engineer",
-    "description": "Ivan Maier Gallardo is a Product-focused Software Engineer with 4+ years of experience building high-performance, scalable web products. Currently at Nauto working on web applications for AI and real-time systems.",
+    "jobTitle": "Software Engineer",
+    "description": "Ivan Maier Gallardo is a software engineer, frontend-leaning full-stack, with 4+ years building B2B platforms. Currently at Nauto (Series C, AI fleet safety) shipping the customer-facing platform used across 500k+ drivers. Previously Mercado Libre and Envíopack.",
     "url": "https://ivanmaierg.dev",
     "image": "https://ivanmaierg.dev/api/og",
     "sameAs": STRUCTURED_DATA_LINKS,
@@ -22,20 +22,21 @@ export const StructuredData = () => {
       "url": "https://nauto.com"
     },
     "knowsAbout": [
-      "React",
       "TypeScript",
+      "React",
       "Next.js",
+      "Tailwind",
+      "shadcn",
+      "React Query",
       "Node.js",
-      "Express",
-      "AWS",
       "PostgreSQL",
       "Microfrontends",
-      "Observability tooling"
+      "Developer Experience"
     ],
     "hasOccupation": {
       "@type": "Occupation",
-      "name": "Frontend Software Engineer",
-      "description": "Building product-focused web applications for AI and real-time systems. Specialized in high-performance, scalable web products where user experience, iteration speed, and developer experience matter."
+      "name": "Software Engineer",
+      "description": "Frontend-leaning full-stack engineer building B2B platforms for fleet safety, CRM, CX, and logistics. Focus on customer-facing surfaces, developer experience, and iteration speed."
     }
   }
 
