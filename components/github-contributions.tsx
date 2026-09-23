@@ -15,7 +15,7 @@ export async function GitHubContributions({ username }: GitHubContributionsProps
     const { weeks, monthLabels, totalContributions } = processContributions(contributions)
 
     return (
-      <div className="space-y-4 animate-fade-in">
+      <div className="space-y-4">
         <ContributionGrid weeks={weeks} monthLabels={monthLabels} />
         <ContributionLegend totalContributions={totalContributions} />
       </div>

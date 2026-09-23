@@ -34,10 +34,10 @@ export async function GitHubActivity({ username }: GitHubActivityProps) {
   }
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-6">
       <div className="space-y-3">
-        {repos.slice(0, 4).map((repo: GitHubRepo, index: number) => (
-          <RepositoryCard key={repo.name} repo={repo} index={index} />
+        {repos.slice(0, 4).map((repo: GitHubRepo) => (
+          <RepositoryCard key={repo.name} repo={repo} />
         ))}
       </div>
     </div>

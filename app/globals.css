@@ -7,20 +7,6 @@
     text-wrap: balance;
   }
 
-  /* Core scroll utilities */
-  .scroll-auto { scroll-behavior: auto; }
-  .scroll-smooth { scroll-behavior: smooth; }
-  .scroll-padding-top { scroll-padding-top: 2rem; }
-  .scroll-optimized {
-    will-change: scroll-position;
-    contain: layout style paint;
-  }
-  .scroll-momentum {
-    scroll-behavior: smooth;
-    scroll-snap-type: y proximity;
-    scroll-snap-align: start;
-  }
-
   /* Hide scrollbars cross-browser */
   .scrollbar-none {
     scrollbar-width: none;
@@ -76,33 +62,30 @@
     @apply border-border;
   }
 
-  
-  
   html {
-    scroll-behavior: smooth;
     scroll-padding-top: 2rem;
     background-color: hsl(var(--background));
-    min-height: 100vh;
+    min-height: 100dvh;
   }
   
   body {
     @apply text-foreground;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
     background-color: hsl(var(--background));
-    min-height: 100vh;
+    min-height: 100dvh;
   }
   
-  /* Optimized scroll behavior */
   @media (prefers-reduced-motion: no-preference) {
-    html, body {
+    html {
       scroll-behavior: smooth;
-      scroll-snap-type: y proximity;
     }
   }
   
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      scroll-behavior: auto !important;
+      animation: none !important;
+      transition: none !important;
+    }
   }
 
 }
@@ -124,115 +107,31 @@
   .bg-contribution-4 {
     background-color: hsl(var(--contribution-4));
   }
-  
-  
-  
-  /* Prevent white flash in contribution grid during theme transitions */
-  .bg-contribution-0,
-  .bg-contribution-1,
-  .bg-contribution-2,
-  .bg-contribution-3,
-  .bg-contribution-4 {
-    will-change: background-color;
-    backface-visibility: hidden;
-  }
-
 }
 
-/* View Transition API Styles */
-@layer base {
-  /* Enable view transitions for the entire page */
-  html {
-    view-transition-name: root;
+@layer components {
+  .theme-toggle {
+    top: max(1rem, env(safe-area-inset-top));
+    right: max(1rem, env(safe-area-inset-right));
   }
 
-  /* Smooth theme transition animations */
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation-duration: 0.3s;
-    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  /* Theme toggle specific transition */
-  ::view-transition-old(root) {
-    animation-name: theme-fade-out;
-  }
-
-  ::view-transition-new(root) {
-    animation-name: theme-fade-in;
-  }
-
-  /* Theme transition keyframes */
-  @keyframes theme-fade-out {
-    from {
-      opacity: 1;
-      transform: scale(1);
+  @media (prefers-reduced-motion: no-preference) {
+    .theme-toggle:not(:focus-visible) {
+      transition: transform 150ms cubic-bezier(0.23, 1, 0.32, 1);
     }
-    to {
-      opacity: 0.8;
-      transform: scale(0.98);
+
+    .theme-toggle:active:not(:focus-visible) {
+      transform: scale(0.97);
     }
   }
 
-  @keyframes theme-fade-in {
-    from {
-      opacity: 0.8;
-      transform: scale(1.02);
+  @media (hover: hover) and (pointer: fine) {
+    .theme-toggle:hover {
+      background-color: hsl(var(--muted-foreground) / 0.1);
     }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
 
-  /* Enhanced theme toggle button transition */
-  [data-theme-toggle] {
-    view-transition-name: theme-toggle;
-  }
-
-  ::view-transition-old(theme-toggle),
-  ::view-transition-new(theme-toggle) {
-    animation-duration: 0.4s;
-    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-
-  ::view-transition-old(theme-toggle) {
-    animation-name: toggle-rotate-out;
-  }
-
-  ::view-transition-new(theme-toggle) {
-    animation-name: toggle-rotate-in;
-  }
-
-  @keyframes toggle-rotate-out {
-    from {
-      opacity: 1;
-      transform: rotate(0deg) scale(1);
-    }
-    to {
-      opacity: 0.7;
-      transform: rotate(90deg) scale(0.9);
-    }
-  }
-
-  @keyframes toggle-rotate-in {
-    from {
-      opacity: 0.7;
-      transform: rotate(-90deg) scale(1.1);
-    }
-    to {
-      opacity: 1;
-      transform: rotate(0deg) scale(1);
-    }
-  }
-
-  /* Respect user's motion preferences */
-  @media (prefers-reduced-motion: reduce) {
-    ::view-transition-old(root),
-    ::view-transition-new(root),
-    ::view-transition-old(theme-toggle),
-    ::view-transition-new(theme-toggle) {
-      animation-duration: 0.1s;
+    .repository-card:hover > div {
+      border-color: hsl(var(--muted-foreground));
     }
   }
 }

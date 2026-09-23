@@ -20,18 +20,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth scroll-momentum" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <LayoutHead />
       </head>
       <body
-        className={`${jetbrainsMono.className} antialiased scroll-smooth scroll-optimized bg-background text-foreground`}
+        className={`${jetbrainsMono.className} antialiased bg-background text-foreground`}
       >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange={false}
+          disableTransitionOnChange
         >
           <a
             href="#main-content"

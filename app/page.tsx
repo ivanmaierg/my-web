@@ -16,10 +16,10 @@ export default function Portfolio() {
       <StructuredData />
       <SEOContent />
 
-      <div className="min-h-screen text-foreground font-mono scroll-smooth scroll-enhanced bg-background">
+      <div className="min-h-dvh text-foreground font-mono bg-background">
         <Header />
 
-        <main id="main-content" className="max-w-4xl mx-auto p-4 mobile:p-6 space-y-8 mobile:space-y-12 scroll-smooth scroll-padding-top mt-8 mb-8">
+        <main id="main-content" className="max-w-4xl mx-auto p-4 mobile:p-6 space-y-8 mobile:space-y-12 mt-8 mb-8">
           <AboutSection />
           <ExperienceSection />
           <SkillsSection />
