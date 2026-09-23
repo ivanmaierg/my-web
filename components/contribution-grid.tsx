@@ -65,7 +65,7 @@ export const ContributionGrid = ({ weeks, monthLabels }: ContributionGridProps) 
           <div className="h-6 mobile:h-3"></div>
         </div>
 
-        <div ref={gridRef} role="group" aria-label="Daily GitHub contributions" aria-describedby={instructionsId} className="overflow-x-auto scroll-right-initial p-1">
+        <div ref={gridRef} role="group" aria-label="Daily GitHub contributions" aria-describedby={instructionsId} className="overflow-x-auto scrollbar-none scroll-right-initial p-1">
           <div className="min-w-max scroll-right-content">
             <div aria-hidden="true" className="flex items-start gap-1 text-xs text-muted-foreground mb-2">
               <div className="flex gap-1">
@@ -105,7 +105,7 @@ export const ContributionGrid = ({ weeks, monthLabels }: ContributionGridProps) 
       <p data-contribution-details aria-live="polite" aria-atomic="true" className="text-xs text-muted-foreground tabular-nums">
         {selectedDay ? `${selectedDay.count} contributions on ${selectedDay.date}` : "No contribution data available."}
       </p>
-      <p id={instructionsId} className="text-xs text-muted-foreground">
+      <p id={instructionsId} className="sr-only">
         Select a day for details. Use arrow keys to browse, or Home and End to jump.
       </p>
     </div>
