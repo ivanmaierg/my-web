@@ -51,7 +51,7 @@ export async function GET(req: Request) {
               fontWeight: '400',
             }}
           >
-            Software Engineer
+            Senior Software Engineer
           </div>
 
           <div
@@ -93,7 +93,7 @@ export async function GET(req: Request) {
             }}
           >
             <span>Buenos Aires, Argentina</span>
-            <span>Nauto</span>
+            <span>Empiric Earth</span>
           </div>
         </div>
       </div>

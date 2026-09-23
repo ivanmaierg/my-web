@@ -1,30 +1,30 @@
 export const SEOContent = () => {
   return (
     <div className="sr-only" aria-hidden="true">
-      <h2>Ivan Maier Gallardo - Software Engineer Portfolio</h2>
+      <h2>Ivan Maier Gallardo - Senior Software Engineer | Product Engineering</h2>
       <p>
-        Software engineer, frontend-leaning full-stack. 4+ years building B2B platforms used by
-        tens of thousands of operators across logistics, CRM, CX, and fleet safety. Currently at
-        Nauto (Series C, AI fleet safety) shipping the customer-facing platform used across 500k+
-        drivers.
+        Senior Software Engineer focused on full-stack product engineering. 5 years building
+        B2B platforms across CRM, logistics, and fleet safety. Currently at Empiric Earth,
+        building the customer platform used by 1,000+ fleets worldwide.
       </p>
       <h3>Professional Experience</h3>
       <p>
-        Software Engineer at Nauto, building the home dashboard, enterprise SSO integrations, and
-        a Claude Skills library used by the team. Previously 3 years at Mercado Libre&apos;s CX IT
-        org helping build a next-gen CRM now used by 25k+ agents handling 5M+ monthly customer
+        Senior Software Engineer at Empiric Earth, shipping fleet management, live video,
+        permissions, SSO, integrations, and enterprise rollouts. Cut CI time from ~45 to ~12
+        minutes and introduced AI-assisted development workflows adopted by multiple engineers.
+        Previously 3 years at Mercado Libre&apos;s CX IT org helping build a next-gen CRM
+        used by 25K+ customer support representatives with 5M+ customer
         interactions, with a Node.js/GraphQL BFF and React Query data layer powering 100+
         microfrontends. Earlier at Envíopack, shipped a B2B WMS, redesigned core warehouse
         workflows (30% faster operator task time) and took test coverage from 0 to 90%.
       </p>
       <h3>Technical Skills</h3>
       <p>
-        TypeScript, React, Next.js, Tailwind, shadcn, React Query, Node.js, PostgreSQL.
+        TypeScript, React, Next.js, Node.js, PostgreSQL, AWS, AI-assisted development.
       </p>
-      <h3>Looking For</h3>
+      <h3>Location</h3>
       <p>
-        A US AI-native startup (Series A–C) building agentic tools for power users or developers.
-        Buenos Aires, full overlap with US time zones, open to remote or relocation.
+        Based in Buenos Aires, with full overlap with US hours.
       </p>
       <h3>Contact</h3>
       <p>

@@ -1,62 +1,27 @@
 "use client"
 
-import * as React from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
-import { startViewTransition } from "@/lib/view-transition"
 
 export const ThemeToggle = () => {
   const { theme, resolvedTheme, setTheme } = useTheme()
-  const [isPressed, setIsPressed] = React.useState(false)
-  const [isRotating, setIsRotating] = React.useState(false)
-
-  const handleToggle = () => {
-    setIsPressed(true)
-    setIsRotating(true)
-    const currentTheme = resolvedTheme ?? theme
-    
-    // Use View Transition API for smooth theme transitions
-    startViewTransition(() => {
-      setTheme(currentTheme === "light" ? "dark" : "light")
-    })
-    
-    setTimeout(() => {
-      setIsPressed(false)
-    }, 150)
-    
-    setTimeout(() => {
-      setIsRotating(false)
-    }, 300)
-  }
-
   const currentTheme = resolvedTheme ?? theme
 
   return (
     <button
-      onClick={handleToggle}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault()
-          handleToggle()
-        }
-      }}
+      type="button"
+      onClick={() => setTheme(currentTheme === "light" ? "dark" : "light")}
       data-theme-toggle
-      className={`inline-flex items-center justify-center rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground disabled:pointer-events-none disabled:opacity-50 border border-border bg-background shadow-sm hover:bg-muted-foreground/10 hover:text-foreground h-9 w-9 transition-all duration-150 ease-in-out ${
-        isPressed ? "scale-95" : "scale-100"
-      } ${isRotating ? "rotate-180" : ""} fixed right-4 top-4 mobile:static mobile:right-auto mobile:top-auto`}
-      aria-label={`Switch to ${currentTheme === "light" ? "dark" : "light"} mode`}
-      tabIndex={0}
+      className="theme-toggle inline-flex h-11 w-11 items-center justify-center rounded-md border border-border bg-background text-sm font-medium shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground fixed z-10 mobile:static"
+      aria-label="Toggle color theme"
     >
-      <span
-        className={`inline-flex items-center justify-center  transition-opacity duration-200 ease-in-out`}
-        aria-hidden
-      >
+      <span className="inline-flex items-center justify-center" aria-hidden>
         <Sun
-          className="h-4 w-4 transition-transform duration-200 ease-in-out inline dark:hidden"
+          className="h-4 w-4 inline dark:hidden"
           data-icon="sun"
         />
         <Moon
-          className="h-4 w-4 transition-transform duration-200 ease-in-out hidden dark:inline"
+          className="h-4 w-4 hidden dark:inline"
           data-icon="moon"
         />
       </span>

@@ -25,7 +25,7 @@ const nextConfig = {
         source: '/llms.txt',
         headers: [
           { key: 'Content-Type', value: 'text/plain; charset=utf-8' },
-          { key: 'Cache-Control', value: 'public, s-maxage=3600, stale-while-revalidate=86400' },
+          { key: 'Cache-Control', value: 'public, max-age=120, s-maxage=604800, stale-while-revalidate=86400' },
         ],
       },
       {
