@@ -10,17 +10,18 @@ export interface ExperienceItem {
 
 export const experiences: ExperienceItem[] = [
   {
-    id: "nauto",
-    company: "Nauto",
-    companyUrl: "https://nauto.com",
-    position: "Software Engineer",
+    id: "empiric-earth",
+    company: "Empiric Earth",
+    companyUrl: "https://empiricearth.com",
+    position: "Senior Software Engineer",
     period: "Dec 2025 to Present",
-    location: "Palo Alto, California",
+    location: "Buenos Aires",
     accomplishments: [
-      "Built the home dashboard from scratch — the main surface fleet managers use to monitor fleet status and identify drivers who need supervision across fleets totaling 500k+ drivers.",
-      "Shipped enterprise integrations for high-priority customers, including SSO via OAuth/OIDC, unblocking commercial rollouts.",
-      "Wrote a library of Claude Skills and custom commands now used by 5+ engineers; cut spec-to-task time, sped up debugging, and let Product prototype features inside engineering projects.",
-      "Leading a cross-functional Design + Engineering initiative to reduce release times and accelerate feature prototyping through agentic coding practices.",
+      "Shipped fleet management, live video, permissions, and operational workflows, partnering with product, design, and backend from problem definition through production rollout.",
+      "Helped shape frontend architecture and technical direction, including API contracts, third-party integrations, feature flags, release workflows, and shared application patterns.",
+      "Built live-streaming experiences for enterprise pilots, covering authorization, privacy requirements, backend integrations, regional deployment constraints, and rollout.",
+      "Cut monorepo CI time from ~45 minutes to ~12 minutes and strengthened TypeScript, linting, release automation, and development workflows.",
+      "Introduced AI-assisted development workflows and internal tooling adopted by multiple engineers, and contributed technical proposals to accelerate product iteration with AI.",
     ]
   },
   {
@@ -31,7 +32,7 @@ export const experiences: ExperienceItem[] = [
     period: "Jan 2023 to Dec 2025",
     location: "Argentina",
     accomplishments: [
-      "Built and scaled a next-gen CRM platform to 25k+ agents handling 5M+ monthly customer interactions.",
+      "Helped build a next-generation CRM platform from the ground up, scaling it to 25K+ customer support representatives and 5M+ customer interactions.",
       "Designed and implemented a client-side event bus, now the platform's standard for communication between 100+ microfrontend modules — replaced ad-hoc messaging with a single API and added cross-module observability.",
       "Shipped an internal admin tool that split shared CRM components into composable pieces and gave teams fast preview environments — cut PR-to-production time in half and accelerated onboarding of new microfrontend modules.",
       "Designed a Node.js/GraphQL BFF and a React Query data layer that became the default data access path, replacing waterfall fetches and standardizing caching and error handling.",

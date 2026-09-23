@@ -6,10 +6,10 @@ export const StructuredData = () => {
     "@type": "Person",
     "name": "Ivan Maier Gallardo",
     "alternateName": ["Ivan Maier", "Ivan Gallardo"],
-    "jobTitle": "Software Engineer",
-    "description": "Ivan Maier Gallardo is a software engineer, frontend-leaning full-stack, with 4+ years building B2B platforms. Currently at Nauto (Series C, AI fleet safety) shipping the customer-facing platform used across 500k+ drivers. Previously Mercado Libre and Envíopack.",
+    "jobTitle": "Senior Software Engineer",
+    "description": "Ivan Maier Gallardo is a Senior Software Engineer focused on full-stack product engineering, with 5 years building B2B platforms across CRM, logistics, and fleet safety. Currently at Empiric Earth, building the customer platform used by 1,000+ fleets worldwide. Previously Mercado Libre and Envíopack.",
     "url": "https://ivanmaierg.dev",
-    "image": "https://ivanmaierg.dev/api/og",
+    "image": "https://ivanmaierg.dev/api/og?v=3",
     "sameAs": STRUCTURED_DATA_LINKS,
     "address": {
       "@type": "PostalAddress",
@@ -18,8 +18,8 @@ export const StructuredData = () => {
     },
     "worksFor": {
       "@type": "Organization",
-      "name": "Nauto",
-      "url": "https://nauto.com"
+      "name": "Empiric Earth",
+      "url": "https://empiricearth.com"
     },
     "knowsAbout": [
       "TypeScript",
@@ -30,13 +30,15 @@ export const StructuredData = () => {
       "React Query",
       "Node.js",
       "PostgreSQL",
+      "AWS",
+      "AI-assisted development",
       "Microfrontends",
       "Developer Experience"
     ],
     "hasOccupation": {
       "@type": "Occupation",
-      "name": "Software Engineer",
-      "description": "Frontend-leaning full-stack engineer building B2B platforms for fleet safety, CRM, CX, and logistics. Focus on customer-facing surfaces, developer experience, and iteration speed."
+      "name": "Senior Software Engineer",
+      "description": "Full-stack product engineer building B2B platforms across CRM, logistics, and fleet safety. Focus on customer-facing products, frontend architecture, enterprise integrations, and AI-assisted development."
     }
   }
 
